@@ -39,21 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archer.cs" />
-    <Compile Include="Barbarian.cs" />
-    <Compile Include="Character.cs" />
-    <Compile Include="Demon.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="Hero.cs" />
-    <Compile Include="IDrawable.cs" />
-    <Compile Include="Image.cs" />
-    <Compile Include="IMovable.cs" />
-    <Compile Include="PlayField.cs" />
+    <Compile Include="Weapons\Bow.cs" />
+    <Compile Include="Heroes\Archer.cs" />
+    <Compile Include="Heroes\Barbarian.cs" />
+    <Compile Include="Common\Character.cs" />
+    <Compile Include="Enemies\Demon.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="Heroes\Hero.cs" />
+    <Compile Include="Common\IDrawable.cs" />
+    <Compile Include="Common\Image.cs" />
+    <Compile Include="Common\IMovable.cs" />
+    <Compile Include="Common\PlayField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Weapon.cs" />
+    <Compile Include="Weapons\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Common\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
