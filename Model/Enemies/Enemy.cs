@@ -8,16 +8,7 @@ namespace Model
 {
     public class Enemy : Character
     {
-        public override void Attack()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void LoseHealthPoints()
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public override void DrawImage()
         {
             throw new NotImplementedException();
