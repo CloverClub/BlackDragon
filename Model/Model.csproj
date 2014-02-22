@@ -47,6 +47,9 @@
     <Compile Include="Enemies\Ogre.cs" />
     <Compile Include="Enemies\Skeleton.cs" />
     <Compile Include="Enemies\Zombie.cs" />
+    <Compile Include="Heroes\Dwarf.cs" />
+    <Compile Include="Heroes\Sorcerer.cs" />
+    <Compile Include="Heroes\Spearman.cs" />
     <Compile Include="Weapons\Javeline.cs" />
     <Compile Include="Weapons\Scepter.cs" />
     <Compile Include="Weapons\Sword.cs" />
