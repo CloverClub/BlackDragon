@@ -36,10 +36,10 @@ namespace Model
             {
                 return this.experiece;
             }
-         private  set
+            set
             {
-             int newExperience = this.experiece+value;
-                if (newExperience>=100)
+                int newExperience = this.experiece + value;
+                if (newExperience >= 100)
                 {
                     this.Experience = newExperience % 100;
                     this.Level++;
@@ -64,7 +64,7 @@ namespace Model
             {
                 return weapon;
             }
-          private  set
+            set
             {
                 weapon = value;
             }
@@ -105,6 +105,11 @@ namespace Model
 
         #endregion
 
+        public Hero()
+        {
+            this.Level = 1;
+        }
+
         public override bool Attack(Character target)
         {
             bool attackResult = base.Attack(target);
@@ -115,7 +120,6 @@ namespace Model
             return attackResult;                     
         }
     
-
         public override void DrawImage()
         {
             throw new NotImplementedException();

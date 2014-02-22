@@ -13,5 +13,11 @@
             get { return this.healthPoints; }
             set { this.healthPoints = value; }
         }
+
+        public Zombie(int health, int damage)
+        {
+            this.Health = health;
+            this.Damage = damage;
+        }
     }
 }

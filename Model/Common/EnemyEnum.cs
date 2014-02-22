@@ -8,8 +8,12 @@ namespace Model
 {
     public enum EnemyEnum
     {
-        Demon = 1,
-        Goatman = 2,
-        Skeleton = 3
+        Skeleton = 1,
+        Zombie = 2,
+        Demon = 3,
+        Goatman = 4,
+        Ogre = 5,
+        Fallen = 6,
+        Dragon = 7
     }
 }
