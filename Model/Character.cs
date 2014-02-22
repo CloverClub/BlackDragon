@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public abstract class Character
+    public abstract class Character : IDrawable, IMovable
     {
         protected int healthPoints;
         protected int damagePoints;
