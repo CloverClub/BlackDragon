@@ -19,9 +19,15 @@ namespace Model
             {
                 return this.experiece;
             }
-            set
+         private  set
             {
-                this.experiece = value;
+             int newExperience = this.experiece+value;
+                if (newExperience>=100)
+                {
+                    this.Experience = newExperience % 100;
+                    this.Level++;
+                }
+                this.experiece += value;
             }
         }
         public int Level 
@@ -30,9 +36,9 @@ namespace Model
             {
                 return level;
             }
-            set
+          private  set
             {
-                level = value;
+                level += value;
             }
         }
         public Weapon Weapon 
@@ -41,7 +47,7 @@ namespace Model
             {
                 return weapon;
             }
-            set
+          private  set
             {
                 weapon = value;
             }
@@ -58,15 +64,16 @@ namespace Model
             }
         }
 
-        public override void Attack()
+        public override bool Attack(Character target)
         {
-            throw new NotImplementedException();
+            bool attackResult = base.Attack(target);
+            if (attackResult)
+            {
+                this.Experience += 10;
+            }
+            return attackResult;                     
         }
-
-        public override void LoseHealthPoints()
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public override void DrawImage()
         {
