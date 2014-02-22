@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\EnemyEnum.cs" />
+    <Compile Include="Common\HeroEnum.cs" />
+    <Compile Include="Enemies\Goatman.cs" />
+    <Compile Include="Enemies\Skeleton.cs" />
     <Compile Include="Weapons\Sword.cs" />
     <Compile Include="Weapons\Bow.cs" />
     <Compile Include="Heroes\Archer.cs" />
