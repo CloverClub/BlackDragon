@@ -11,7 +11,19 @@ namespace Model
         private int level;
         private Weapon weapon;
         private int highScore;
+        private int experiece;
 
+        public int Experience
+        {
+            get
+            {
+                return this.experiece;
+            }
+            set
+            {
+                this.experiece = value;
+            }
+        }
         public int Level 
         {
             get
