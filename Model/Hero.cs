@@ -8,10 +8,16 @@ namespace Model
 {
     public class Hero : Character
     {
+        #region Fields
+
         private int level;
         private Weapon weapon;
         private int highScore;
         private int experiece;
+
+        #endregion
+
+        #region Properties
 
         public int Experience
         {
@@ -57,6 +63,30 @@ namespace Model
                 highScore = value;
             }
         }
+        public int HealthPoints
+        {
+            get
+            {
+                return healthPoints;
+            }
+            set
+            {
+                healthPoints = value;
+            }
+        }
+        public int DamagePoints
+        {
+            get
+            {
+                return damagePoints;
+            }
+            set
+            {
+                damagePoints = value;
+            }
+        }
+
+        #endregion
 
         public override void Attack()
         {
