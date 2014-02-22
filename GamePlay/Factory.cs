@@ -28,6 +28,14 @@ namespace GamePlay
             {
                 case 1:
                     return new Demon();
+                case 2:
+                    return new Zombie();
+                case 3:
+                    return new Fallen();
+                case 4:
+                    return new Ogre();
+                case 5:
+                    return new Dragon();
                 default:
                     throw new NotImplementedException();
             }
