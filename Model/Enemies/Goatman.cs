@@ -37,5 +37,17 @@ namespace Model
             Health = health;
             Damage = damage;
         }
+
+        public override string DrawImage()
+        {
+            StringBuilder image = new StringBuilder();
+            image.Append(@"
+                         @__@
+                         _\/_
+                        | |  |
+                          |_
+                         /  \");
+            return image.ToString();
+        }
     }
 }

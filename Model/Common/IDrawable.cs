@@ -9,5 +9,6 @@ namespace Model
     interface IDrawable
     {
         void Draw(int x, int y);
+        string DrawImage();
     }
 }

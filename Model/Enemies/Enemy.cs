@@ -9,7 +9,7 @@ namespace Model
     public class Enemy : Character
     {
        
-        public override void DrawImage()
+        public override string DrawImage()
         {
             throw new NotImplementedException();
         }

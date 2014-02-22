@@ -9,6 +9,9 @@ namespace Model
     public enum HeroEnum
     {
         Archer = 1,
-        Barbarian = 2
+        Barbarian = 2,
+        Sorcerer = 3,
+        Spearman = 4,
+        Dwarf = 5
     }
 }
