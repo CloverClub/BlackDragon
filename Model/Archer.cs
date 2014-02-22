@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    class Archer : Hero
+    public class Archer : Hero
     {
         private string name;
 
