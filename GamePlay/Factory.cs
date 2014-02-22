@@ -9,29 +9,33 @@ namespace GamePlay
 {
     public class Factory
     { 
-        public static Hero GetCharacter(HeroEnum heroId)
+        public static Hero GetCharacter(int heroId)
         {
             switch (heroId)
             {
-                case HeroEnum.Archer:
+                case 1:
                     return new Archer();
-                case HeroEnum.Barbarian:
+                case 2:
                     return new Barbarian(0, 1, 100,10);
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        public static Enemy GetEnemy(EnemyEnum enemyId)
+        public static Enemy GetEnemy(int enemyId)
         {
             switch (enemyId)
             {
-                case EnemyEnum.Demon:
+                case 1:
                     return new Demon();
-                case EnemyEnum.Skeleton:
-                    return new Skeleton(10,10);
-                case EnemyEnum.Goatman:
-                    return new Goatman(10,20);
+                case 2:
+                    return new Zombie();
+                case 3:
+                    return new Fallen();
+                case 4:
+                    return new Ogre();
+                case 5:
+                    return new Dragon();
                 default:
                     throw new NotImplementedException();
             }
