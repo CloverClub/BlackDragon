@@ -9,6 +9,7 @@ namespace Model
     public abstract class Weapon
     {
         protected int addDamage;
+        protected int range;
 
         public int Damage { get; private set; }
 

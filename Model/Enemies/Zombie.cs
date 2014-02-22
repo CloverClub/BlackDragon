@@ -1,17 +1,7 @@
 ﻿namespace Model
 {
-    class Archer : Hero
+    public class Zombie : Enemy
     {
-        private string name;
-
-        public string Name
-        {
-            get { return this.name; }
-            set 
-            {
-               this.name = value;
-            }
-        }
         public int Damage
         {
             get { return this.damagePoints; }

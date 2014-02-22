@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    class Demon : Character
+    public class Ogre : Enemy
     {
         public int Damage
         {
