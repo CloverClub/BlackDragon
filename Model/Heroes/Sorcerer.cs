@@ -1,22 +1,21 @@
 ﻿namespace Model
 {
-    public class Dwarf : Hero
+    public class Sorcerer : Hero
     {
-        private bool increaseRange;
+        private bool damageForLife;
 
-        public bool IncreaseRange
+        public bool Sacrifice
         {
             get
             {
-                return this.increaseRange;
+                return this.damageForLife;
             }
             set
             {
-                this.increaseRange = value;
+                this.damageForLife = value;
             }
         }
-
-        public Dwarf(string name, int exp, int health, int damage)
+        public Sorcerer(string name, int exp, int health, int damage)
         {
             this.Name = name;
             this.Experience = exp;
