@@ -14,10 +14,21 @@ namespace Model
         private Weapon weapon;
         private int highScore;
         private int experiece;
+        private string name;
+
 
         #endregion
 
         #region Properties
+
+        public string Name
+        {
+            get { return this.name; }
+            set
+            {
+                this.name = value;
+            }
+        }
 
         public int Experience
         {

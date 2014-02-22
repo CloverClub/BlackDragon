@@ -2,26 +2,14 @@
 {
     public class Archer : Hero
     {
-        private string name;
 
-        public string Name
+        public Archer(string name, int exp, int level, int health, int damage)
         {
-            get { return this.name; }
-            set 
-            {
-               this.name = value;
-            }
-        }
-        public int Damage
-        {
-            get { return this.damagePoints; }
-            set { this.damagePoints = value; }
-        }
-
-        public int Health
-        {
-            get { return this.healthPoints; }
-            set { this.healthPoints = value; }
+            this.Name = name;
+            this.Experience = exp;
+            this.Level = level;
+            this.HealthPoints = health;
+            this.DamagePoints = damage;
         }
     }
 }
