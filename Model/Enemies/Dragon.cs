@@ -42,7 +42,7 @@ namespace Model
             //
             //   (_(
             //  ('')
-            //_  "\ )>,_     .-->
+            //_  ''\ )>,_     .-->
             //_>--w/((_ >,_.'
             //       ///
             //       "`"
@@ -60,11 +60,11 @@ namespace Model
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write(new string(' ', this.Width));
+            Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write(new string(' ', this.Width));
+            Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write(new string(' ', this.Width));
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }
