@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
+
 namespace Model
 {
     public class Archer : Hero
@@ -25,16 +27,39 @@ namespace Model
             this.DamagePoints = damage;
         }
 
-        public override string DrawImage()
+        public override void Draw()
         {
-            StringBuilder image = new StringBuilder();
-            image.Append("|_O");image.AppendLine();
-            image.Append(@"  |\_)_"); image.AppendLine();
-            image.Append(@"  |\");image.AppendLine();                 
-            image.Append("/  |");              
-                          
+            int x = Position.Left;
+            int y = Position.Top;
 
-            return image.ToString();
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine("|_O");
+            Console.SetCursorPosition(Position.Left,++y);
+            Console.WriteLine(@"  |\_)_");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"  |\ )");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@" /  |");
+
+              //|_O
+              //  |\_)_
+              //  |\ )
+              // /  |
         }
+
+        public override void Erase()
+       {
+            int y = Position.Top;
+            int width = 7;
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', width));
+        }
+
     }
 }

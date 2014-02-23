@@ -8,7 +8,8 @@ namespace Model
 {
     interface IDrawable
     {
-        void Draw(int x, int y);
+        void Draw();
+        void Erase();
         string DrawImage();
     }
 }

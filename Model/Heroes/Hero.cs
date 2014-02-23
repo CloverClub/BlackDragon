@@ -120,11 +120,6 @@ namespace Model
             return attackResult;                     
         }
     
-        public override string DrawImage()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void MoveLeft()
         {
             throw new NotImplementedException();

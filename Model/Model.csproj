@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Common\EnemyEnum.cs" />
     <Compile Include="Common\HeroEnum.cs" />
+    <Compile Include="Common\Position.cs" />
     <Compile Include="Enemies\Brute.cs" />
     <Compile Include="Enemies\Dragon.cs" />
     <Compile Include="Enemies\Fallen.cs" />

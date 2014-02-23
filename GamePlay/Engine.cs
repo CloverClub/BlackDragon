@@ -24,7 +24,7 @@ namespace GamePlay
                 return menu;
             }
         }
-        public Hero Hero
+        public Hero PlayingHero
         {
             get
             {
@@ -93,27 +93,39 @@ namespace GamePlay
 
         public void SetHero()
         {
-            Hero = Factory.GetHero((HeroEnum)Choice);
-            Console.Write(Hero.DrawImage());
+            PlayingHero = Factory.GetHero((HeroEnum)Choice);
+            PlayingHero.Position.Left = Console.WindowWidth / 2;
+            PlayingHero.Position.Top = 1;
+            PlayingHero.Draw();
         }
 
         public void Play()
         {
-            int positionLeft;
-            int positionTop;
-
+            
             while(true)
             {
                 Key = Console.ReadKey();
                 switch(Key.Key)
                 {
                     case ConsoleKey.LeftArrow:
+                        PlayingHero.Erase();
+                        PlayingHero.Position.Left--;
+                        PlayingHero.Draw();
                         break;
                     case ConsoleKey.RightArrow:
+                        PlayingHero.Erase();
+                        PlayingHero.Position.Left++;
+                        PlayingHero.Draw();
                         break;
                     case ConsoleKey.UpArrow:
+                        PlayingHero.Erase();
+                        PlayingHero.Position.Top--;
+                        PlayingHero.Draw();
                         break;
                     case ConsoleKey.DownArrow:
+                        PlayingHero.Erase();
+                        PlayingHero.Position.Top++;
+                        PlayingHero.Draw();
                         break;
                 }
             }

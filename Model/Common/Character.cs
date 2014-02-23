@@ -12,8 +12,21 @@ namespace Model
         protected int damagePoints;
         protected Image image;
         public bool IsDead { get; private set; }
-    
+        private Position position;
 
+        public Position Position
+        {
+            get
+            {
+                if (position == null)
+                    position = new Model.Position();
+                return position;
+            }
+            set
+            {
+                position = value;
+            }
+        }
 
         public virtual bool Attack(Character target)
         {
@@ -47,15 +60,18 @@ namespace Model
         public abstract void MoveLeft();
         public abstract void MoveRight();
 
-        public void Draw(int x, int y)
+        public virtual void Draw()
         {
            
+        }
+        public virtual void Erase()
+        {
         }
         public virtual string DrawImage()
         {
             return string.Empty;
         }
-
+        
         public void Move(int x, int y)
         {
             throw new NotImplementedException();
