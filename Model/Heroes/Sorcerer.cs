@@ -5,6 +5,7 @@ namespace Model
     public class Sorcerer : Hero
     {
         private bool damageForLife;
+        private Scepter weapon;
 
         public bool Sacrifice
         {

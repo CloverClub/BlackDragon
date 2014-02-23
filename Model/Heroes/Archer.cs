@@ -5,6 +5,10 @@ namespace Model
     public class Archer : Hero
     {
         private bool doubleDamage;
+        private Bow weapon;
+
+        
+        
 
         public bool DoubleDamage
         {
@@ -17,6 +21,7 @@ namespace Model
                 this.doubleDamage = value;
             }
         }
+        
 
         public Archer(string name, int exp, int health, int damage)
         {

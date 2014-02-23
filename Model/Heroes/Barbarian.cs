@@ -5,6 +5,7 @@ namespace Model
     public class Barbarian : Hero
     {
         private bool frenzy;
+        private ThrowingAxe weapon;
 
         public bool Frenzy
         {

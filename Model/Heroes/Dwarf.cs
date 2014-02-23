@@ -5,6 +5,7 @@ namespace Model
     public class Dwarf : Hero
     {
         private bool increaseRange;
+        private ThrowingAxe weapon;
 
         public bool IncreaseRange
         {
