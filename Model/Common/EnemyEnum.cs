@@ -14,6 +14,9 @@ namespace Model
         Goatman = 4,
         Ogre = 5,
         Fallen = 6,
-        Dragon = 7
+        Brute = 7, 
+        Yeti = 8,
+        Fenix = 9, 
+        Dragon = 10
     }
 }

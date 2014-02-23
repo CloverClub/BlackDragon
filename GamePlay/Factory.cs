@@ -44,8 +44,14 @@ namespace GamePlay
                     return new Goatman(35, 25);
                 case EnemyEnum.Skeleton:
                     return new Skeleton(5, 5);
+                case EnemyEnum.Yeti:
+                    return new Yeti(40, 25);
+                case EnemyEnum.Brute:
+                    return new Brute(45, 20);
+                case EnemyEnum.Fenix:
+                    return new Fenix(50, 25);
                 case EnemyEnum.Dragon:
-                    return new Dragon(50, 30);
+                    return new Dragon(100, 20);
                 default:
                     throw new NotImplementedException();
             }
