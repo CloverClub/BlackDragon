@@ -22,8 +22,6 @@ namespace Model
             this.Damage = damage;
         }
 
-           
-
         public override void Draw()
         {
             int x = Position.Left;

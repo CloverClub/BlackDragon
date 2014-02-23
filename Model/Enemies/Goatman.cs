@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -38,16 +34,45 @@ namespace Model
             Damage = damage;
         }
 
-        public override string DrawImage()
+        public override void Draw()
         {
-            StringBuilder image = new StringBuilder();
-            image.Append(@"
-                         @__@
-                         _\/_
-                        | |  |
-                          |_
-                         /  \");
-            return image.ToString();
+            int x = Position.Left;
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(" )__)");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@" _\/_");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine("| |  |");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine("  |_");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@" /  \");
+            // )__)
+            // _\/_
+            //| |  |
+            //  |_
+            // /  \
+
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }

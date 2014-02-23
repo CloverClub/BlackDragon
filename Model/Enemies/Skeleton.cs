@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -35,6 +31,40 @@ namespace Model
         {
             this.Health = health;
             this.Damage = damage;
+        }
+
+        public override void Draw()
+        {
+            int x = Position.Left;
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(" _@_");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine("| | |");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine("  |");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@" / \");
+            // _@_
+            //| | |
+            //  |
+            // / \
+
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }

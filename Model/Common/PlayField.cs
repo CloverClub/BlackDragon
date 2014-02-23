@@ -8,21 +8,25 @@ namespace Model
 {
     class PlayField
     {
-        private int width = 80;
-        private int height = 50;
-
+        private int width;
+        private int height;
+        
         public int Width
         {
             get { return width; }
+            set { width = value; }
         }
 
         public int Height
         {
             get { return height; }
+            set { height = value; }
         }
 
-        public PlayField()
-        { 
+        public PlayField(int height, int width)
+        {
+            this.Height = height;
+            this.Width = width;
         }
     }
 }
