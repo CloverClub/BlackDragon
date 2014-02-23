@@ -23,17 +23,6 @@ namespace Model
             this.Damage = damage;
         }
 
-        public override string DrawImage()
-        {
-            StringBuilder image = new StringBuilder();
-            image.Append(@"
-                          {__}
-                           \/
-                        /^(  )^\  
-                        \,(..),/      
-                          |~~|");
-            return image.ToString();
-        }
 
         public override void Draw()
         {

@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class Fenix : Enemy
     {
@@ -18,6 +20,46 @@
         {
             this.Health = health;
             this.Damage = damage;
+        }
+
+        
+
+        public override void Draw()
+        {
+            int x = Position.Left;
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(@" (\  (\");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"(  \_('>");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"(__(=_)");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"  -''=");
+            
+
+            // (\  (\
+            //(  \_('>
+            //(__(=_)
+            //   -"=
+
+            //FENIX
+
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }
