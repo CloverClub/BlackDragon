@@ -19,12 +19,12 @@ namespace Model
         }
          
 
-        public Barbarian(string name, int exp, int health, int damage)
+        public Barbarian(string name, int exp, int health, int damage, Weapon weaponDamage)
         {
             this.Name = name;
             this.Experience = exp;
             this.HealthPoints = health;
-            this.DamagePoints = damage;
+            this.DamagePoints = damage + weaponDamage.Damage;
             this.Width = 7;
             this.Length = 4;
         }

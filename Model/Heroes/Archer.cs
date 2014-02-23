@@ -18,12 +18,12 @@ namespace Model
             }
         }
 
-        public Archer(string name, int exp, int health, int damage)
+        public Archer(string name, int exp, int health, int damage, Bow bowdamage)
         {
             this.Name = name;
             this.Experience = exp;
             this.HealthPoints = health;
-            this.DamagePoints = damage;
+            this.DamagePoints = damage + bowdamage.Damage;
             this.Width = 7;
             this.Length = 4;
         }

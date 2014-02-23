@@ -18,12 +18,12 @@ namespace Model
             }
         }
 
-        public Dwarf(string name, int exp, int health, int damage)
+        public Dwarf(string name, int exp, int health, int damage, Weapon weapon)
         {
             this.Name = name;
             this.Experience = exp;
             this.HealthPoints = health;
-            this.DamagePoints = damage;
+            this.DamagePoints = damage + weapon.Damage;
             this.Width = 9;
             this.Length = 4;
         }
