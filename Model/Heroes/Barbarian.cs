@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -35,15 +31,17 @@ namespace Model
 
         public override void Draw()
         {
+            int x = Position.Left;
             int y = Position.Top;
+
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.Write("|_O (|)");
+            Console.WriteLine(@"|_O (|)");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write("  |`-|");
+            Console.WriteLine("  |`-|");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write(@"  |\");
+            Console.WriteLine(@"  |\");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write(" /  |");
+            Console.WriteLine(" /  |");
             //|_O (|)
             //  |`-|
             //  |\
@@ -53,11 +51,15 @@ namespace Model
         public override void Erase()
         {
             int y = Position.Top;
-            for(int i = 0; i <= this.Length; i++)
-            {
-                Console.SetCursorPosition(Position.Left, y++);
-                Console.Write(new string(' ', this.Width));
-            }
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }

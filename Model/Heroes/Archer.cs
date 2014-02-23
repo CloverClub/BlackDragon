@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace Model
 {
@@ -35,30 +34,41 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine("|_O");
-            Console.SetCursorPosition(Position.Left,++y);
-            Console.WriteLine(@"  |\_)_");
+            Console.WriteLine("  ^");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"  |\ )");
+            Console.WriteLine(@" /_\{)");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@" /  |");
-
-              //|_O
-              //  |\_)_
-              //  |\ )
-              // /  |
+            Console.WriteLine("<---) >");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@" \ / |");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine("  V /|");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"   |  \");
+            //  ^
+            // /_\{)
+            //<---) >
+            // \ / |
+            //  V /|
+            //   |  \
         }
 
         public override void Erase()
-       {
+        {
             int y = Position.Top;
 
-            for (int i = 0; i < this.Length; i++)
-            {
-                Console.SetCursorPosition(Position.Left, y++);
-                Console.WriteLine(new string(' ', this.Width));
-            }
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
-
     }
 }

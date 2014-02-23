@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class Spearman : Hero
     {
@@ -21,6 +23,39 @@
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
+        }
+
+        public override void Draw()
+        {
+            int x = Position.Left;
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(" _O  ^");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine("| |`-|");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"  |\ |");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(" /  L|");
+            // _O  ^
+            //| |`-|
+            //  |\ |
+            // /  L|
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }
