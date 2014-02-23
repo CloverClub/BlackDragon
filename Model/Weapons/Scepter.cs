@@ -5,7 +5,7 @@
         public int Damage
         {
             get { return this.addDamage; }
-            set { this.addDamage = value; }
+            set { this.addDamage = 18; }
         }
         public int Range
         {
