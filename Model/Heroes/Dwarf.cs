@@ -24,6 +24,8 @@ namespace Model
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
+            this.Width = 9;
+            this.Length = 4;
         }
 
         public override void Draw()
