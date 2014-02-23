@@ -32,6 +32,8 @@ namespace Model
         {
             Health = health;
             Damage = damage;
+            this.Width = 6;
+            this.Length = 5;
         }
 
         public override void Draw()

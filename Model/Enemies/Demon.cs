@@ -21,6 +21,8 @@ namespace Model
         {
             this.Health = health;
             this.Damage = damage;
+            this.Width = 9;
+            this.Length = 5;
         }
 
 
