@@ -5,6 +5,7 @@ namespace Model
     public class Dwarf : Hero
     {
         private bool increaseRange;
+        private ThrowingAxe weapon;
 
         public bool IncreaseRange
         {
@@ -18,7 +19,7 @@ namespace Model
             }
         }
 
-        public Dwarf(string name, int exp, int health, int damage, Weapon weapon)
+        public Dwarf(string name, int exp, int health, int damage)
         {
             this.Name = name;
             this.Experience = exp;

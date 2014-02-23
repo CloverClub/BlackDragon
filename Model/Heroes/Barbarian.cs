@@ -5,6 +5,7 @@ namespace Model
     public class Barbarian : Hero
     {
         private bool frenzy;
+        private ThrowingAxe weapon;
 
         public bool Frenzy
         {
@@ -19,12 +20,12 @@ namespace Model
         }
          
 
-        public Barbarian(string name, int exp, int health, int damage, Weapon weaponDamage)
+        public Barbarian(string name, int exp, int health, int damage)
         {
             this.Name = name;
             this.Experience = exp;
             this.HealthPoints = health;
-            this.DamagePoints = damage + weaponDamage.Damage;
+            this.DamagePoints = damage + weapon.Damage;
             this.Width = 7;
             this.Length = 4;
         }

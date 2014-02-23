@@ -5,6 +5,7 @@ namespace Model
     public class Archer : Hero
     {
         private bool doubleDamage;
+        private Bow weapon;
 
         public bool DoubleDamage
         {
@@ -17,13 +18,14 @@ namespace Model
                 this.doubleDamage = value;
             }
         }
+        
 
-        public Archer(string name, int exp, int health, int damage, Bow bowdamage)
+        public Archer(string name, int exp, int health, int damage)
         {
             this.Name = name;
             this.Experience = exp;
             this.HealthPoints = health;
-            this.DamagePoints = damage + bowdamage.Damage;
+            this.DamagePoints = damage + weapon.Damage;
             this.Width = 7;
             this.Length = 4;
         }

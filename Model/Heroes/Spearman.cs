@@ -5,6 +5,7 @@ namespace Model
     public class Spearman : Hero
     {
         private bool invincibility;
+        private Javeline weapon;
 
         public bool Invinsible
         {
@@ -17,7 +18,7 @@ namespace Model
                 this.invincibility = value;
             }
         }
-        public Spearman(string name, int exp, int health, int damage, Weapon weapon)
+        public Spearman(string name, int exp, int health, int damage)
         {
             this.Name = name;
             this.Experience = exp;
