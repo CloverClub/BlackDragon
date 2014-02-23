@@ -13,6 +13,7 @@ namespace Model
         protected Image image;
         public bool IsDead { get; private set; }
         private Position position;
+        private int width;
 
         public Position Position
         {
@@ -25,6 +26,18 @@ namespace Model
             set
             {
                 position = value;
+            }
+        }
+
+        public int Width
+        {
+            get
+            {
+                return width;
+            }
+            set
+            {
+                width = value;
             }
         }
 

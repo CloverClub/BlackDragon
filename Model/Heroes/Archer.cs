@@ -25,6 +25,7 @@ namespace Model
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
+            this.Width = 7;
         }
 
         public override void Draw()
@@ -50,15 +51,15 @@ namespace Model
         public override void Erase()
        {
             int y = Position.Top;
-            int width = 7;
+            
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine(new string(' ', width));
+            Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', width));
+            Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', width));
+            Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', width));
+            Console.Write(new string(' ', this.Width));
         }
 
     }
