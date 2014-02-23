@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
+
 namespace Model
 {
     public class Demon : Enemy
@@ -21,16 +23,46 @@ namespace Model
             this.Damage = damage;
         }
 
-        public override string DrawImage()
+
+        public override void Draw()
         {
-            StringBuilder image = new StringBuilder();
-            image.Append(@"
-                          {__}
-                           \/
-                        /^(  )^\  
-                        \,(..),/      
-                          |~~|");
-            return image.ToString();
+            int x = Position.Left;
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine("   {__}");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"   \/");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"/^(  )^\ ");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"\,(..),/ ");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(@"  |~~|'')");
+            
+
+            //  {__}
+            //   \/
+            ///^(  )^\  
+            //\,(..),/      
+            //  |~~|");
+
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }

@@ -58,10 +58,6 @@ namespace Model
             Console.WriteLine(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(new string(' ', this.Width));
-            Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
-            Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
         }
     }
 }
