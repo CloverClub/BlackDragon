@@ -1,4 +1,5 @@
-﻿namespace Model
+﻿using System.Text;
+namespace Model
 {
     public class Archer : Hero
     {
@@ -22,6 +23,18 @@
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
+        }
+
+        public override string DrawImage()
+        {
+            StringBuilder image = new StringBuilder();
+            image.Append("|_O");image.AppendLine();
+            image.Append(@"  |\_)_"); image.AppendLine();
+            image.Append(@"  |\");image.AppendLine();                 
+            image.Append("/  |");              
+                          
+
+            return image.ToString();
         }
     }
 }

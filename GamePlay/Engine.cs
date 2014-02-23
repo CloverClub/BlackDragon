@@ -12,7 +12,8 @@ namespace GamePlay
         private Menu menu;
         private short choice;
         private Hero hero;
-        List<Enemy> enemies;
+        private List<Enemy> enemies;
+        private ConsoleKeyInfo key;
 
         public Menu Menu
         {
@@ -45,7 +46,6 @@ namespace GamePlay
                 enemies = value;
             }
         }
-
         public short Choice
         {
             get
@@ -57,11 +57,24 @@ namespace GamePlay
                 choice = value;
             }
         }
+        public ConsoleKeyInfo Key
+        {
+            get
+            {
+                return key;
+            }
+            set
+            {
+                key = value;
+            }
+        }
+
         public Engine()
         {
             InitializeGame();
-            SetHero();    
-    }
+            SetHero();
+            Play();
+        }
 
         public void InitializeGame()
         {
@@ -81,7 +94,29 @@ namespace GamePlay
         public void SetHero()
         {
             Hero = Factory.GetHero((HeroEnum)Choice);
-            Console.WriteLine(Hero.DrawImage());
+            Console.Write(Hero.DrawImage());
+        }
+
+        public void Play()
+        {
+            int positionLeft;
+            int positionTop;
+
+            while(true)
+            {
+                Key = Console.ReadKey();
+                switch(Key.Key)
+                {
+                    case ConsoleKey.LeftArrow:
+                        break;
+                    case ConsoleKey.RightArrow:
+                        break;
+                    case ConsoleKey.UpArrow:
+                        break;
+                    case ConsoleKey.DownArrow:
+                        break;
+                }
+            }
         }
     }
 }

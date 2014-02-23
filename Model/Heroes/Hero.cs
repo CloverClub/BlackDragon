@@ -120,7 +120,7 @@ namespace Model
             return attackResult;                     
         }
     
-        public override void DrawImage()
+        public override string DrawImage()
         {
             throw new NotImplementedException();
         }

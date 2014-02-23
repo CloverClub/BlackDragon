@@ -30,5 +30,16 @@ namespace Model
             this.HealthPoints = health;
             this.DamagePoints = damage;
         }
+
+        public override string DrawImage()
+        {
+            StringBuilder image = new StringBuilder();
+            image.Append("|_O (|)");image.AppendLine();
+            image.Append("  |`-|");image.AppendLine();
+            image.Append(@" |\");image.AppendLine();
+            image.Append(" /  |");image.AppendLine();                  
+                         
+            return image.ToString();
+        }
     }
 }
