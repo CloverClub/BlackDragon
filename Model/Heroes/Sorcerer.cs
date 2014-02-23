@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 namespace Model
 {
     public class Sorcerer : Hero
@@ -22,16 +23,35 @@ namespace Model
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
+            this.Width = 9;
+            this.Length = 5;
         }
 
-        public override string DrawImage()
+        public override void Draw()
         {
-            StringBuilder image = new StringBuilder();
-            image.Append("( _o  *"); image.AppendLine();
-            image.Append(@" |\ )/|");image.AppendLine();
-            image.Append(@" |/_\ |");
-                            
-            return image.ToString();
+            int y = this.Position.Top;
+
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.Write("( _o  *");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.Write(@" |\ )/|");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.Write(@" |/_\ |");
+
+           //( _o  *
+           // |\ )/|
+           // |/_\ |
+
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+            for(int i = 0; i <= this.Length; i++)
+            {
+                Console.SetCursorPosition(Position.Left, y++);
+                Console.Write(new string(' ', this.Width));
+            }
         }
     }
 }

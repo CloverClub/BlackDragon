@@ -14,7 +14,8 @@ namespace Model
         public bool IsDead { get; private set; }
         private Position position;
         private int width;
-
+        private int length;
+        
         public Position Position
         {
             get
@@ -38,6 +39,17 @@ namespace Model
             set
             {
                 width = value;
+            }
+        }
+        public int Length
+        {
+            get
+            {
+                return length;
+            }
+            set
+            {
+                length = value;
             }
         }
 

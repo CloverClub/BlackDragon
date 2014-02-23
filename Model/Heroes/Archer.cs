@@ -26,6 +26,7 @@ namespace Model
             this.HealthPoints = health;
             this.DamagePoints = damage;
             this.Width = 7;
+            this.Length = 4;
         }
 
         public override void Draw()
@@ -51,15 +52,12 @@ namespace Model
         public override void Erase()
        {
             int y = Position.Top;
-            
-            Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine(new string(' ', this.Width));
-            Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
-            Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
-            Console.SetCursorPosition(Position.Left, ++y);
-            Console.Write(new string(' ', this.Width));
+
+            for (int i = 0; i < this.Length; i++)
+            {
+                Console.SetCursorPosition(Position.Left, y++);
+                Console.WriteLine(new string(' ', this.Width));
+            }
         }
 
     }

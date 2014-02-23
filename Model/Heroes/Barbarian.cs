@@ -29,17 +29,35 @@ namespace Model
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
+            this.Width = 7;
+            this.Length = 4;
         }
 
-        public override string DrawImage()
+        public override void Draw()
         {
-            StringBuilder image = new StringBuilder();
-            image.Append("|_O (|)");image.AppendLine();
-            image.Append("  |`-|");image.AppendLine();
-            image.Append(@" |\");image.AppendLine();
-            image.Append(" /  |");image.AppendLine();                  
-                         
-            return image.ToString();
+            int y = Position.Top;
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.Write("|_O (|)");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.Write("  |`-|");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.Write(@"  |\");
+            Console.SetCursorPosition(Position.Left, ++y);
+            Console.Write(" /  |");
+            //|_O (|)
+            //  |`-|
+            //  |\
+            // /  |
+        }
+
+        public override void Erase()
+        {
+            int y = Position.Top;
+            for(int i = 0; i <= this.Length; i++)
+            {
+                Console.SetCursorPosition(Position.Left, y++);
+                Console.Write(new string(' ', this.Width));
+            }
         }
     }
 }
