@@ -23,7 +23,7 @@ namespace Model
             this.Name = name;
             this.Experience = exp;
             this.HealthPoints = health;
-            this.DamagePoints = damage + weapon.Damage;
+            this.DamagePoints = damage;
             this.Width = 9;
             this.Length = 5;
         }
