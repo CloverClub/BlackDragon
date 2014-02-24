@@ -11,14 +11,90 @@ namespace Model
         {
             throw new NotImplementedException();
         }
+        private EnemyMoveDirection moveDirection;
 
-        public void Move()
+        public EnemyMoveDirection MoveDirection
         {
-            // TO DO: implement logic of the ricochet to the borders
-            this.MoveLowerRight();
+            get { return moveDirection; }
+            set { moveDirection = value; }
+        }
+        
+
+        public void Move(int fieldWidth, int fieldHeight)
+        {
+            int border = 5;
+            bool isOnTopBorder = (this.Position.Top == border);
+            bool isOnRightFieldBorder = (this.Position.Left == fieldWidth - 1 - this.Width - border);
+            bool isOnLeftFieldBorder = (this.Position.Left == border);
+            bool isOnDownFieldBorder = (this.Position.Top == fieldHeight - 1 - this.Length - border);
+
+            // change the direction if the enemy position is on the field border
+            if (this.MoveDirection == EnemyMoveDirection.downRight)
+            {
+                if (isOnRightFieldBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.downLeft;
+                }
+                else if (isOnDownFieldBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.upRight;
+                }
+            }
+            else if (this.MoveDirection == EnemyMoveDirection.downLeft)
+            {
+                if (isOnLeftFieldBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.downRight;
+                }
+                else if (isOnDownFieldBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.upLeft;
+                }
+            }
+            else if (this.MoveDirection == EnemyMoveDirection.upRight)
+            {
+                if (isOnRightFieldBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.upLeft;
+                }
+                else if (isOnTopBorder)
+                {
+                    this.moveDirection = EnemyMoveDirection.downRight;
+                }
+            }
+            else if (this.MoveDirection == EnemyMoveDirection.upLeft)
+            {
+                if (isOnLeftFieldBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.upRight;
+                }
+                else if (isOnTopBorder)
+                {
+                    this.MoveDirection = EnemyMoveDirection.downLeft;
+                }
+            }
+
+            // move enemy 
+            if (this.MoveDirection == EnemyMoveDirection.downRight)
+            {
+                this.MoveDownRight();
+            }
+            else if (this.MoveDirection == EnemyMoveDirection.downLeft)
+            {
+                this.MoveDownLeft();
+            }
+            else if (this.MoveDirection == EnemyMoveDirection.upRight)
+            {
+                this.MoveUpRight();
+            }
+            else if (this.MoveDirection == EnemyMoveDirection.upLeft)
+            {
+                this.MoveUpLeft();
+            }
+
         }
 
-        public void MoveLowerRight()
+        public void MoveDownRight()
         {
             this.Erase();
             this.Position.Left++;
@@ -26,15 +102,15 @@ namespace Model
             this.Draw();
         }
 
-        public void MoveLowerLeft()
+        public void MoveDownLeft()
         {
             this.Erase();
-            this.Position.Left++;
+            this.Position.Left--;
             this.Position.Top++;
             this.Draw();
         }
 
-        public void MoveUpperRight()
+        public void MoveUpRight()
         {
             this.Erase();
             this.Position.Left++;
@@ -43,11 +119,11 @@ namespace Model
             
         }
 
-        public void MoveUpperLeft()
+        public void MoveUpLeft()
         {
             this.Erase();
             this.Position.Left--;
-            this.Position.Top++;
+            this.Position.Top--;
             this.Draw();
         }
     }

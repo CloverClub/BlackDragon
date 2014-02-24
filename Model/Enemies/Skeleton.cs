@@ -31,8 +31,9 @@ namespace Model
         {
             this.Health = health;
             this.Damage = damage;
-            this.Width = 4;
+            this.Width = 5;
             this.Length = 4;
+            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()

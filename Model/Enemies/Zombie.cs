@@ -20,6 +20,7 @@ namespace Model
         {
             this.Health = health;
             this.Damage = damage;
+            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()

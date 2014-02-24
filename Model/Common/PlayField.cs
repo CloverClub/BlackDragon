@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class PlayField
+    public class PlayField
     {
         private int width;
         private int height;

@@ -18,6 +18,21 @@ namespace GamePlay
         private Thread heroThread;
         private Thread enemiesThread;
         private ManualResetEvent pauseEvent;
+        private PlayField playfield;
+
+        public PlayField PlayField
+        {
+            get 
+            {
+                if (playfield == null)
+                {
+                    playfield = new PlayField(40, 100);
+                }
+                return playfield; 
+            }
+            set { playfield = value; }
+        }
+        
 
         public Menu Menu
         {
@@ -77,6 +92,8 @@ namespace GamePlay
 
         public Engine()
         {
+            Console.BufferHeight = Console.WindowHeight = this.PlayField.Height;
+            Console.BufferWidth = Console.WindowWidth = this.PlayField.Width;
             InitializeGame();
             SetHero();
             Play();
@@ -152,10 +169,10 @@ namespace GamePlay
 
         private void MoveAllEnemy()
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
             for (int i = 0; i < Enemies.Count; i++)
             {
-                Enemies[i].Move();
+                Enemies[i].Move(this.PlayField.Width, this.PlayField.Height);
             }
         }
     }

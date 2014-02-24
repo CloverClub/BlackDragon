@@ -34,6 +34,7 @@ namespace Model
             Damage = damage;
             this.Width = 6;
             this.Length = 5;
+            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()

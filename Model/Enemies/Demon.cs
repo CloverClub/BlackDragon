@@ -23,6 +23,7 @@ namespace Model
             this.Damage = damage;
             this.Width = 9;
             this.Length = 5;
+            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
 
