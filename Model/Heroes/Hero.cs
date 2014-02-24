@@ -119,15 +119,33 @@ namespace Model
             }
             return attackResult;                     
         }
-    
-        public override void MoveLeft()
-        {
-            throw new NotImplementedException();
-        }
 
-        public override void MoveRight()
+        public void Move(ConsoleKeyInfo key)
         {
-            throw new NotImplementedException();
+            key = Console.ReadKey();
+            switch (key.Key)
+            {
+                case ConsoleKey.LeftArrow:
+                    this.Erase();
+                    this.Position.Left--;
+                    this.Draw();
+                    break;
+                case ConsoleKey.RightArrow:
+                    this.Erase();
+                    this.Position.Left++;
+                    this.Draw();
+                    break;
+                case ConsoleKey.UpArrow:
+                    this.Erase();
+                    this.Position.Top--;
+                    this.Draw();
+                    break;
+                case ConsoleKey.DownArrow:
+                    this.Erase();
+                    this.Position.Top++;
+                    this.Draw();
+                    break;
+            }
         }
     }
 }

@@ -72,7 +72,7 @@ namespace Model
             }
         }
 
-        public override void Move(int x, int y)
+        public override void Move()
         {
             throw new NotImplementedException();
         }

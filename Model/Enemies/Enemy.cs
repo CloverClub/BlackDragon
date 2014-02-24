@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Model
 {
@@ -14,14 +12,43 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public override void MoveLeft()
+        public void Move()
         {
-            throw new NotImplementedException();
+            // TO DO: implement logic of the ricochet to the borders
+            this.MoveLowerRight();
         }
 
-        public override void MoveRight()
+        public void MoveLowerRight()
         {
-            throw new NotImplementedException();
+            this.Erase();
+            this.Position.Left++;
+            this.Position.Top++;
+            this.Draw();
+        }
+
+        public void MoveLowerLeft()
+        {
+            this.Erase();
+            this.Position.Left++;
+            this.Position.Top++;
+            this.Draw();
+        }
+
+        public void MoveUpperRight()
+        {
+            this.Erase();
+            this.Position.Left++;
+            this.Position.Top--;
+            this.Draw();
+            
+        }
+
+        public void MoveUpperLeft()
+        {
+            this.Erase();
+            this.Position.Left--;
+            this.Position.Top++;
+            this.Draw();
         }
     }
 }

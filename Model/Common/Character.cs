@@ -82,9 +82,6 @@ namespace Model
 
         }
 
-        public abstract void MoveLeft();
-        public abstract void MoveRight();
-
         public virtual void Draw()
         {
            
@@ -97,9 +94,8 @@ namespace Model
             return string.Empty;
         }
         
-        public void Move(int x, int y)
+        public void Move()
         {
-            throw new NotImplementedException();
         }
     }
 }

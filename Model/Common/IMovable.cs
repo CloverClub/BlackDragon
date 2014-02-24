@@ -8,6 +8,6 @@ namespace Model
 {
     interface IMovable
     {
-        void Move(int x, int y);
+        void Move();
     }
 }

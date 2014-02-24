@@ -114,81 +114,48 @@ namespace GamePlay
             for (int i = 0; i < 10; i++)
             {
                 Enemy newEnemy = Factory.GetEnemy((EnemyEnum)PlayingHero.Level);
-                
+
                 newEnemy.Position.Left = previousEnemyPositionLeft;
                 newEnemy.Position.Top = previousEnemyPositionTop;
                 newEnemy.Draw();
-                
+
                 Enemies.Add(newEnemy);
                 previousEnemyPositionLeft += newEnemy.Width + 2;
-            }
-        }
-
-        public void MoveEnemiesLowerRight()
-        {
-            Thread.Sleep(1000);
-            Enemy currentEnemy = null;
-            for (int i = 0; i < 10; i++)
-            {
-                currentEnemy = Enemies[i];
-                currentEnemy.Erase();
-                currentEnemy.Position.Left++;
-                currentEnemy.Position.Top++;
-                currentEnemy.Draw();
-            }
-        }
-
-        public void MoveHero()
-        {
-            Key = Console.ReadKey();
-            switch (Key.Key)
-            {
-                case ConsoleKey.LeftArrow:
-                    PlayingHero.Erase();
-                    PlayingHero.Position.Left--;
-                    PlayingHero.Draw();
-                    break;
-                case ConsoleKey.RightArrow:
-                    PlayingHero.Erase();
-                    PlayingHero.Position.Left++;
-                    PlayingHero.Draw();
-                    break;
-                case ConsoleKey.UpArrow:
-                    PlayingHero.Erase();
-                    PlayingHero.Position.Top--;
-                    PlayingHero.Draw();
-                    break;
-                case ConsoleKey.DownArrow:
-                    PlayingHero.Erase();
-                    PlayingHero.Position.Top++;
-                    PlayingHero.Draw();
-                    break;
             }
         }
 
         public void Play()
         {
             PositionEnemies();
-            
-            enemiesThread = new Thread(MoveEnemiesLowerRight);
+
+            enemiesThread = new Thread(MoveAllEnemy);
             enemiesThread.Start();
-            while(true)
+
+            while (true)
             {
                 if (Console.KeyAvailable)
                 {
-                    MoveHero();   
+                    PlayingHero.Move(key);
                 }
-
-                RestartEnemiesThread();
+                EnemiesTurnThread();
             }
         }
 
-        private void RestartEnemiesThread()
+        private void EnemiesTurnThread()
         {
             if (!enemiesThread.IsAlive)
             {
-                enemiesThread = new Thread(MoveEnemiesLowerRight);
+                enemiesThread = new Thread(MoveAllEnemy);
                 enemiesThread.Start();
+            }
+        }
+
+        private void MoveAllEnemy()
+        {
+            Thread.Sleep(1000);
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                Enemies[i].Move();
             }
         }
     }

@@ -45,6 +45,6 @@ namespace Model
         public abstract void Draw();
         public abstract void Erase();
 
-        public abstract void Move(int x, int y);
+        public abstract void Move();
     }
 }
