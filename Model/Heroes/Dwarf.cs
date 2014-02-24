@@ -35,13 +35,13 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine("   , ,");
+            Console.WriteLine("  , ,");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine("    Q (|)");
+            Console.WriteLine("   Q (|)");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@" ()( )\|");
+            Console.WriteLine(@"()( )\|");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine("   | L");
+            Console.WriteLine("  | L");
             //   , ,
             //    Q (|)
             // ()( )\|

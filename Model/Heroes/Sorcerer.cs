@@ -24,7 +24,7 @@ namespace Model
             this.Experience = exp;
             this.HealthPoints = health;
             this.DamagePoints = damage;
-            this.Width = 9;
+            this.Width = 7;
             this.Length = 5;
         }
 
