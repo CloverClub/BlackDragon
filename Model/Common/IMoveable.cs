@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    interface IMovable
+    interface IMoveable
     {
-        void Move();
+        void Move(int fieldWidth, int fieldHeight);
     }
 }

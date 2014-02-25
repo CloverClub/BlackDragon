@@ -25,7 +25,7 @@ namespace Model
             //this.moveDirection = EnemyMoveDirection.downRight;
         }
 
-        public void Move(int fieldWidth, int fieldHeight)
+        public override void Move(int fieldWidth, int fieldHeight)
         {           
             bool isOnTopBorder = (this.Position.Top == PlayField.borderTop);
             bool isOnRightFieldBorder = (this.Position.Left == fieldWidth - 1 - this.Width - PlayField.borderSides);

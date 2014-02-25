@@ -15,6 +15,11 @@ namespace Model
             set { this.range = value; }
         }
 
+        public Bow()
+        {
+            
+        }
+
         public override void Draw()
         {
             int x = Position.Left;
@@ -66,9 +71,5 @@ namespace Model
             }
         }
 
-        public override void Move()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

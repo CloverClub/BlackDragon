@@ -66,9 +66,5 @@ namespace Model
             }
         }
 
-        public override void Move()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

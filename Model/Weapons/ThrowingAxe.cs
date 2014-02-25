@@ -65,10 +65,5 @@ namespace Model
                 Console.WriteLine(new string(' ', 3));
             }
         }
-
-        public override void Move()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -5,7 +5,7 @@ namespace Model
     public class Spearman : Hero
     {
         private bool invincibility;
-        private Javeline weapon;
+        private Javelin weapon;
 
         public bool Invinsible
         {
