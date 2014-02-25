@@ -17,12 +17,12 @@ namespace Model
         }
 
         public Fallen(int health, int damage)
+            : base()
         {
             this.Health = health;
             this.Damage = damage;
             this.Width = 9;
             this.Length = 7;
-            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
            

@@ -29,12 +29,12 @@ namespace Model
         }
 
         public Goatman(int health, int damage)
+            : base()
         {
             Health = health;
             Damage = damage;
             this.Width = 6;
             this.Length = 5;
-            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()

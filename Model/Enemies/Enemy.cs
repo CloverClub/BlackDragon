@@ -6,11 +6,6 @@ namespace Model
 {
     public class Enemy : Character
     {
-       
-        public override string DrawImage()
-        {
-            throw new NotImplementedException();
-        }
         private EnemyMoveDirection moveDirection;
 
         public EnemyMoveDirection MoveDirection
@@ -18,7 +13,17 @@ namespace Model
             get { return moveDirection; }
             set { moveDirection = value; }
         }
-        
+
+        public Enemy()
+        {
+            
+            Array values = Enum.GetValues(typeof(EnemyMoveDirection));
+            Random random = new Random();
+            EnemyMoveDirection randomDirection = (EnemyMoveDirection)values.GetValue(random.Next(values.Length));
+            this.moveDirection = randomDirection;
+            
+            //this.moveDirection = EnemyMoveDirection.downRight;
+        }
 
         public void Move(int fieldWidth, int fieldHeight)
         {           

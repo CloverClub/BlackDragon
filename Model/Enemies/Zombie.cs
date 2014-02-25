@@ -17,10 +17,12 @@ namespace Model
         }
 
         public Zombie(int health, int damage)
+            : base()
         {
             this.Health = health;
             this.Damage = damage;
-            this.MoveDirection = EnemyMoveDirection.downRight;
+            this.Width = 7;
+            this.Length = 4;
         }
 
         public override void Draw()

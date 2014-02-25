@@ -17,12 +17,12 @@ namespace Model
         }
 
         public Fenix(int health, int damage)
+            : base()
         {
             this.Health = health;
             this.Damage = damage;
             this.Width = 8;
             this.Length = 4;
-            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         

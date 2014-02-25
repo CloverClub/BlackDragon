@@ -17,10 +17,12 @@ namespace Model
         }
 
         public Yeti(int health, int damage)
+            : base()
         {
             this.Health = health;
             this.Damage = damage;
-            this.MoveDirection = EnemyMoveDirection.downRight;
+            this.Width = 9;
+            this.Length = 5;
         }
 
         public override void Draw()

@@ -125,20 +125,22 @@ namespace GamePlay
 
         public void PositionEnemies()
         {
-            int previousEnemyPositionLeft = 5;
-            int previousEnemyPositionTop = 5;
+            int previousEnemyPositionLeft = PlayField.Width / 2 - 40;
+            int previousEnemyPositionTop = 10;
 
             Enemies.Clear();
             for (int i = 0; i < 10; i++)
             {
                 Enemy newEnemy = Factory.GetEnemy((EnemyEnum)PlayingHero.Level);
-
+                
                 newEnemy.Position.Left = previousEnemyPositionLeft;
                 newEnemy.Position.Top = previousEnemyPositionTop;
                 newEnemy.Draw();
 
                 Enemies.Add(newEnemy);
                 previousEnemyPositionLeft += newEnemy.Width + 2;
+
+                Thread.Sleep(30);
             }
         }
 
@@ -147,7 +149,7 @@ namespace GamePlay
             playfield.DrawBorders();
             PositionEnemies();
 
-            enemiesThread = new Thread(MoveAllEnemy);
+            enemiesThread = new Thread(MoveAllEnemies);
             enemiesThread.Start();
 
             while (true)
@@ -164,12 +166,12 @@ namespace GamePlay
         {
             if (!enemiesThread.IsAlive)
             {
-                enemiesThread = new Thread(MoveAllEnemy);
+                enemiesThread = new Thread(MoveAllEnemies);
                 enemiesThread.Start();
             }
         }
 
-        private void MoveAllEnemy()
+        private void MoveAllEnemies()
         {
             Thread.Sleep(200);
             for (int i = 0; i < Enemies.Count; i++)

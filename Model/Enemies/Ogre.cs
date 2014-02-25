@@ -17,12 +17,12 @@ namespace Model
         }
 
         public Ogre(int health, int damage)
+            : base()
         {
             this.Health = health;
             this.Damage = damage;
             this.Width = 8;
             this.Length = 5;
-            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()

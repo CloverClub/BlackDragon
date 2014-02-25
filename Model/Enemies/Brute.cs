@@ -17,12 +17,12 @@ namespace Model
         }
 
         public Brute(int health, int damage)
+            :base()
         {
             this.Health = health;
             this.Damage = damage;
             this.Width = 7;
             this.Length = 4;
-            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()

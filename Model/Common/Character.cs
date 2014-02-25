@@ -89,10 +89,6 @@ namespace Model
         public virtual void Erase()
         {
         }
-        public virtual string DrawImage()
-        {
-            return string.Empty;
-        }
         
         public void Move()
         {

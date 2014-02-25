@@ -17,12 +17,12 @@ namespace Model
         }
 
         public Dragon(int health, int damage)
+            : base()
         {
             this.Health = health;
             this.Damage = damage;
             this.Width = 21;
             this.Length = 8;
-            this.MoveDirection = EnemyMoveDirection.downRight;
         }
 
         public override void Draw()
