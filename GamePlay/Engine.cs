@@ -100,6 +100,21 @@ namespace GamePlay
             Play();
         }
 
+        public void EnemyCollision() //TOOD fix the Collision system
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+			{
+                if ((Enemies[i].Width == PlayingHero.Width && Enemies[i].Length == PlayingHero.Length)
+                    || (Enemies[i].Width + 1 == PlayingHero.Width && Enemies[i].Length == PlayingHero.Length)
+                    || (Enemies[i].Width - 1 == PlayingHero.Width && Enemies[i].Length == PlayingHero.Length)
+                    || (Enemies[i].Width == PlayingHero.Width && Enemies[i].Length + 1 == PlayingHero.Length)
+                    || (Enemies[i].Width == PlayingHero.Width && Enemies[i].Length - 1 == PlayingHero.Length))
+                {
+                    PlayingHero.Attack(Enemies[i]);
+                }
+			}
+        }
+
         public void InitializeGame()
         {
             Menu.DisplayTitle();
@@ -158,6 +173,7 @@ namespace GamePlay
                 {
                     PlayingHero.Move(key);
                 }
+                EnemyCollision(); // Collision inserted here?
                 EnemiesTurnThread();
             }
         }
