@@ -26,7 +26,7 @@ namespace GamePlay
             {
                 if (playfield == null)
                 {
-                    playfield = new PlayField(40, 100);
+                    playfield = new PlayField(40, 146);
                 }
                 return playfield; 
             }
@@ -92,8 +92,9 @@ namespace GamePlay
 
         public Engine()
         {
-            Console.BufferHeight = Console.WindowHeight = this.PlayField.Height;
-            Console.BufferWidth = Console.WindowWidth = this.PlayField.Width;
+            Console.WindowHeight = this.PlayField.Height;
+            Console.WindowWidth = this.PlayField.Width;
+            Console.BufferHeight = this.PlayField.Height + 1;
             InitializeGame();
             SetHero();
             Play();
@@ -102,7 +103,7 @@ namespace GamePlay
         public void InitializeGame()
         {
             Menu.DisplayTitle();
-            Menu.DisplayOptions();
+            Menu.DisplayOptions();           
 
             short.TryParse(Console.ReadLine(), out choice);
             while (Choice < 1 || Choice > 5)
@@ -118,14 +119,14 @@ namespace GamePlay
         {
             PlayingHero = Factory.GetHero((HeroEnum)Choice);
             PlayingHero.Position.Left = Console.WindowWidth / 2;
-            PlayingHero.Position.Top = Console.WindowHeight - PlayingHero.Length;
+            PlayingHero.Position.Top = Console.WindowHeight - PlayingHero.Length - PlayField.borderTop;
             PlayingHero.Draw();
         }
 
         public void PositionEnemies()
         {
-            int previousEnemyPositionLeft = 0;
-            int previousEnemyPositionTop = 0;
+            int previousEnemyPositionLeft = 5;
+            int previousEnemyPositionTop = 5;
 
             Enemies.Clear();
             for (int i = 0; i < 10; i++)
@@ -143,13 +144,14 @@ namespace GamePlay
 
         public void Play()
         {
+            playfield.DrawBorders();
             PositionEnemies();
 
             enemiesThread = new Thread(MoveAllEnemy);
             enemiesThread.Start();
 
             while (true)
-            {
+            {              
                 if (Console.KeyAvailable)
                 {
                     PlayingHero.Move(key);
@@ -169,7 +171,7 @@ namespace GamePlay
 
         private void MoveAllEnemy()
         {
-            Thread.Sleep(100);
+            Thread.Sleep(200);
             for (int i = 0; i < Enemies.Count; i++)
             {
                 Enemies[i].Move(this.PlayField.Width, this.PlayField.Height);

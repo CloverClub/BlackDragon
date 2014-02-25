@@ -21,12 +21,11 @@ namespace Model
         
 
         public void Move(int fieldWidth, int fieldHeight)
-        {
-            int border = 5;
-            bool isOnTopBorder = (this.Position.Top == border);
-            bool isOnRightFieldBorder = (this.Position.Left == fieldWidth - 1 - this.Width - border);
-            bool isOnLeftFieldBorder = (this.Position.Left == border);
-            bool isOnDownFieldBorder = (this.Position.Top == fieldHeight - 1 - this.Length - border);
+        {           
+            bool isOnTopBorder = (this.Position.Top == PlayField.borderTop);
+            bool isOnRightFieldBorder = (this.Position.Left == fieldWidth - 1 - this.Width - PlayField.borderSides);
+            bool isOnLeftFieldBorder = (this.Position.Left == PlayField.borderSides);
+            bool isOnDownFieldBorder = (this.Position.Top == fieldHeight - 1 - this.Length - PlayField.borderBottom);
 
             // change the direction if the enemy position is on the field border
             if (this.MoveDirection == EnemyMoveDirection.downRight)

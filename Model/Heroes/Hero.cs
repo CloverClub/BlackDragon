@@ -126,25 +126,53 @@ namespace Model
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
-                    this.Erase();
-                    this.Position.Left--;
-                    this.Draw();
-                    break;
+                    if (this.Position.Left > PlayField.borderSides)
+                    {
+                        this.Erase();
+                        this.Position.Left--;
+                        this.Draw();
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 case ConsoleKey.RightArrow:
-                    this.Erase();
-                    this.Position.Left++;
-                    this.Draw();
-                    break;
+                    if (this.Position.Left + this.Width < Console.WindowWidth - PlayField.borderSides)
+                    {
+                        this.Erase();
+                        this.Position.Left++;
+                        this.Draw();
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 case ConsoleKey.UpArrow:
-                    this.Erase();
-                    this.Position.Top--;
-                    this.Draw();
-                    break;
+                    if (this.Position.Top > PlayField.borderTop)
+                    {
+                        this.Erase();
+                        this.Position.Top--;
+                        this.Draw();
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 case ConsoleKey.DownArrow:
-                    this.Erase();
-                    this.Position.Top++;
-                    this.Draw();
-                    break;
+                    if (this.Position.Top + this.Length < Console.WindowHeight - PlayField.borderBottom)
+                    {
+                        this.Erase();
+                        this.Position.Top++;
+                        this.Draw();
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
             }
         }
     }
