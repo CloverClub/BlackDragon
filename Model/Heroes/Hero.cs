@@ -11,12 +11,12 @@ namespace Model
         #region Fields
 
         private int level;
+        private List<Weapon> weapons;
         private Weapon weapon;
         private int highScore;
         private int experiece;
         private string name;
-
-
+        
         #endregion
 
         #region Properties
@@ -58,7 +58,20 @@ namespace Model
                 level += value;
             }
         }
-        public Weapon Weapon 
+        public List<Weapon> MovingWeapons
+        {
+            get
+            {
+                if (weapons == null)
+                    weapons = new List<Weapon>();
+                return weapons;
+            }
+            set
+            {
+                weapons = value;
+            }
+        }
+        public Weapon Weapon
         {
             get
             {
@@ -122,7 +135,6 @@ namespace Model
 
         public void Move(ConsoleKeyInfo key)
         {
-            key = Console.ReadKey();
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
@@ -173,6 +185,41 @@ namespace Model
                     {
                         break;
                     }
+            }
+        }
+
+        public void AddNewMovingWeapon(ConsoleKeyInfo key, Weapon weapon)
+        {
+            switch (key.Key)
+            {
+                case ConsoleKey.A:
+                    weapon.Position.Left = this.Position.Left - 1;
+                    weapon.Position.Top = this.Position.Top;
+                    weapon.WeaponDirection = WeaponDirectionEnum.left;
+                    weapon.Draw();
+                    MovingWeapons.Add(weapon);
+                    break;
+                case ConsoleKey.S:
+                    weapon.Position.Left = this.Position.Left;
+                    weapon.Position.Top = this.Position.Top + this.Length;
+                    weapon.WeaponDirection = WeaponDirectionEnum.down;
+                    weapon.Draw();
+                    MovingWeapons.Add(weapon);
+                    break;
+                case ConsoleKey.W:
+                    weapon.Position.Left = this.Position.Left;
+                    weapon.Position.Top = this.Position.Top - 1;
+                    weapon.WeaponDirection = WeaponDirectionEnum.up;
+                    weapon.Draw();
+                    MovingWeapons.Add(weapon);
+                    break;
+                case ConsoleKey.D:
+                    weapon.Position.Left = this.Position.Left + this.Width + 1;
+                    weapon.Position.Top = this.Position.Top;
+                    weapon.WeaponDirection = WeaponDirectionEnum.right;
+                    weapon.Draw();
+                    MovingWeapons.Add(weapon);
+                    break;
             }
         }
     }

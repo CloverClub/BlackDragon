@@ -55,7 +55,7 @@
     <Compile Include="Heroes\Dwarf.cs" />
     <Compile Include="Heroes\Sorcerer.cs" />
     <Compile Include="Heroes\Spearman.cs" />
-    <Compile Include="Weapons\Javeline.cs" />
+    <Compile Include="Weapons\Javelin.cs" />
     <Compile Include="Weapons\Scepter.cs" />
     <Compile Include="Weapons\Sword.cs" />
     <Compile Include="Weapons\Bow.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Heroes\Hero.cs" />
     <Compile Include="Common\IDrawable.cs" />
     <Compile Include="Common\Image.cs" />
-    <Compile Include="Common\IMovable.cs" />
+    <Compile Include="Common\IMoveable.cs" />
     <Compile Include="Common\PlayField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weapons\ThrowingAxe.cs" />

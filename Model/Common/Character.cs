@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public abstract class Character : IDrawable, IMovable
+    public abstract class Character : IDrawable, IMoveable
     {
         protected int healthPoints;
         protected int damagePoints;
@@ -90,7 +90,7 @@ namespace Model
         {
         }
         
-        public void Move()
+        public virtual void Move(int fieldWidth, int fieldHeight)
         {
         }
     }

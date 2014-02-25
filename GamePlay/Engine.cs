@@ -17,6 +17,7 @@ namespace GamePlay
         private ConsoleKeyInfo key;
         private Thread heroThread;
         private Thread enemiesThread;
+        private Thread weaponsThread;
         private ManualResetEvent pauseEvent;
         private PlayField playfield;
 
@@ -150,15 +151,20 @@ namespace GamePlay
             PositionEnemies();
 
             enemiesThread = new Thread(MoveAllEnemies);
+            weaponsThread = new Thread(MoveWeaponsOnScreen);
             enemiesThread.Start();
+            weaponsThread.Start();
 
             while (true)
             {              
                 if (Console.KeyAvailable)
                 {
-                    PlayingHero.Move(key);
+                    key = Console.ReadKey();
+                    PlayingHero.Move(Key);
+                    PlayingHero.AddNewMovingWeapon(Key, Factory.GetWeapon((HeroEnum)Choice));
                 }
                 EnemiesTurnThread();
+                WeaponsTurnThread();
             }
         }
 
@@ -177,6 +183,29 @@ namespace GamePlay
             for (int i = 0; i < Enemies.Count; i++)
             {
                 Enemies[i].Move(this.PlayField.Width, this.PlayField.Height);
+            }
+        }
+
+        private void WeaponsTurnThread()
+        {
+            if (!weaponsThread.IsAlive)
+            {
+                weaponsThread = new Thread(MoveWeaponsOnScreen);
+                weaponsThread.Start();
+            }
+        }
+
+        private void MoveWeaponsOnScreen()
+        {
+            Thread.Sleep(200);
+            for (int i = 0; i < PlayingHero.MovingWeapons.Count; i++)
+            {
+                PlayingHero.MovingWeapons[i].Move(this.PlayField.Width, this.PlayField.Height);
+                if (PlayingHero.MovingWeapons[i].ToBeRemoved)
+                {
+                    PlayingHero.MovingWeapons.Remove(PlayingHero.MovingWeapons[i]);
+                    i--;
+                }
             }
         }
     }

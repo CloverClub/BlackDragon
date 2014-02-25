@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Javeline : Weapon
+    public class Javelin : Weapon
     {
         public int Damage
         {
@@ -64,11 +64,6 @@ namespace Model
             {
                 Console.WriteLine(new string(' ', 4));
             }
-        }
-
-        public override void Move()
-        {
-            throw new NotImplementedException();
         }
     }
 }

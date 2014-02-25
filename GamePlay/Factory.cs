@@ -56,5 +56,24 @@ namespace GamePlay
                     throw new NotImplementedException();
             }
         }
+
+        public static Weapon GetWeapon(HeroEnum heroId)
+        {
+            switch (heroId)
+            {
+                case HeroEnum.Archer:
+                    return new Bow();
+                case HeroEnum.Barbarian:
+                    return new ThrowingAxe();
+                case HeroEnum.Dwarf:
+                    return new ThrowingAxe();
+                case HeroEnum.Sorcerer:
+                    return new Scepter();
+                case HeroEnum.Spearman:
+                    return new Javelin();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }
