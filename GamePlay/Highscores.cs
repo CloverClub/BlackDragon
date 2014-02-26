@@ -22,7 +22,7 @@ namespace GamePlay
             string[] currentScoreAndName;
 
             DrawAtPosition.WriteAt(10, 0, "\n" + "                         HIGH SCORES:" + "\n");
-            DrawAtPosition.WriteAt(10, 3, "*========================================*");
+            DrawAtPosition.WriteAt(10, 3, "*========================================*", ConsoleColor.Yellow);
 
             int linesNumber = (allScores.Count > 30) ? 30 : allScores.Count;
 
@@ -88,7 +88,7 @@ namespace GamePlay
                 // PRINTS TOP 5 PLAYERS w. HIGH SCORES
 
                 DrawAtPosition.WriteAt(10, 0, "\n" + "                         HIGH SCORES:" + "\n");
-                DrawAtPosition.WriteAt(10, 3, "*========================================*");
+                DrawAtPosition.WriteAt(10, 3, "*========================================*", textcolor);
 
                 for (int index = 0; index < fiveTopPlayers.Count; index++)
                 {

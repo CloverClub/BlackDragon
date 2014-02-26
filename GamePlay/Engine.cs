@@ -197,9 +197,10 @@ namespace GamePlay
                     EnemiesTurnThread();
                     WeaponsTurnThread();
 
+                    
                     if (PlayingHero.IsDead) // hero isDead
                     {
-                        // game over
+                        GameOver.Initialize();
                     }
                     else if (true) // method - detect whether all enemies are dead 
                     {
