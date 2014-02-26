@@ -38,11 +38,6 @@ namespace Model
             }
             set
             {
-                if (value >= 100)
-                {
-                    this.experiece = value % 100;
-                    this.Level++;
-                }
                 this.experiece = value;
             }
         }
@@ -52,9 +47,9 @@ namespace Model
             {
                 return level;
             }
-          private  set
+            set
             {
-                level += value;
+                level = value;
             }
         }
         public List<Weapon> MovingWeapons
