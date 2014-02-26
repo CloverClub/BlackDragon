@@ -111,6 +111,16 @@ namespace GamePlay
                     || (Enemies[i].Width == PlayingHero.Width && Enemies[i].Length + 1 == PlayingHero.Length)
                     || (Enemies[i].Width == PlayingHero.Width && Enemies[i].Length - 1 == PlayingHero.Length))
                 {
+                    Enemies[i].Attack(PlayingHero);
+                }
+			}
+        }
+        public void WeaponCollision() 
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+			{
+                if (Enemies[i].Width == PlayingHero.Weapon.Width && Enemies[i].Length == PlayingHero.Weapon.Length)
+                {
                     PlayingHero.Attack(Enemies[i]);
                 }
 			}
