@@ -115,16 +115,16 @@ namespace GamePlay
                 }
 			}
         }
-        public void WeaponCollision() 
-        {
-            for (int i = 0; i < Enemies.Count; i++)
-			{
-                if (Enemies[i].Width == PlayingHero.Weapon.Width && Enemies[i].Length == PlayingHero.Weapon.Length)
-                {
-                    PlayingHero.Attack(Enemies[i]);
-                }
-			}
-        }
+        //public void WeaponCollision() 
+        //{
+        //    for (int i = 0; i < Enemies.Count; i++)
+        //    {
+        //        if (Enemies[i].Width == PlayingHero.Weapon.Width && Enemies[i].Length == PlayingHero.Weapon.Length)
+        //        {
+        //            PlayingHero.Attack(Enemies[i]);
+        //        }
+        //    }
+        //}
 
         public void InitializeGame()
         {
@@ -188,7 +188,8 @@ namespace GamePlay
                     PlayingHero.Move(Key);
                     PlayingHero.AddNewMovingWeapon(Key, Factory.GetWeapon((HeroEnum)Choice));
                 }
-                EnemyCollision(); // Collision inserted here?
+                EnemyCollision();
+                WeaponCollision();
                 EnemiesTurnThread();
                 WeaponsTurnThread();
             }
