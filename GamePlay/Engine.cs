@@ -161,7 +161,6 @@ namespace GamePlay
         {
             while (!PlayingHero.IsDead)
             {
-                //PlayingHero.Level = level;
                 playfield.DrawBorders();
                 PositionEnemies();
 
@@ -195,6 +194,7 @@ namespace GamePlay
                     }
                 }
 
+                PlayingHero.Level++;
             }
         }
 
@@ -218,15 +218,16 @@ namespace GamePlay
 
         public void WeaponCollision()
         {
-            for (int i = 0; i < Enemies.Count; i++)
+            try
             {
-                for (int enemyY = Enemies[i].Position.Top; enemyY <= Enemies[i].Position.Top + Enemies[i].Length; enemyY++)
+                #region
+                for (int i = 0; i < Enemies.Count; i++)
                 {
-                    for (int enemyX = Enemies[i].Position.Left; enemyX <= Enemies[i].Position.Left + Enemies[i].Width; enemyX++)
+                    for (int enemyY = Enemies[i].Position.Top; enemyY <= Enemies[i].Position.Top + Enemies[i].Length; enemyY++)
                     {
-                        for (int weaponIndex = 0; weaponIndex < PlayingHero.MovingWeapons.Count; weaponIndex++)
+                        for (int enemyX = Enemies[i].Position.Left; enemyX <= Enemies[i].Position.Left + Enemies[i].Width; enemyX++)
                         {
-                            try
+                            for (int weaponIndex = 0; weaponIndex < PlayingHero.MovingWeapons.Count; weaponIndex++)
                             {
                                 Weapon currentWeapon = PlayingHero.MovingWeapons[weaponIndex];
 
@@ -248,14 +249,17 @@ namespace GamePlay
                                             return;
                                     }
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                return;
+
                             }
                         }
                     }
                 }
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
         
