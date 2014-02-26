@@ -34,21 +34,21 @@ namespace Model
             Console.SetCursorPosition(Position.Left, Position.Top);
             Console.WriteLine("    , ,");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"/\ |V| /\");
+            Console.WriteLine(@" /\ |V| /\");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"/  (('')) *\");
+            Console.WriteLine(@"/  (("")) *\");
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(@"\ |_/_\_/ /");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"\_(()))_/");
+            Console.WriteLine(@" \_(()))_/");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@" _/ \_");
+            Console.WriteLine(@"   _/ \_");
 
             //    , ,
-            ///\ |V| /\
+            // /\ |V| /\
             ///  ((")) *\
             //\ |_/_\_/ /
-            //\_(()))_/
+            // \_(()))_/
             //   _/ \_
             //fallen
 

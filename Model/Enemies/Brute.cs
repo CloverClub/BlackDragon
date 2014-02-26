@@ -31,20 +31,20 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine("__o_/>");
+            Console.WriteLine(" __o__");
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(@"/ [ ]/\");
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(@"[// \\]");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"/_|_\");
+            Console.WriteLine(@" /_|_\");
             
 
-            //__o_/>
+            // __o__
             /// [ ]/\
             //[// \\]
-            ///_|_\
-            ///
+            // /_|_\
+            
             //brute
 
         }

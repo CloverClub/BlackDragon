@@ -33,13 +33,13 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine("   {__}");
+            Console.WriteLine("  {__}");
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(@"   \/");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"/^(  )^\ ");
+            Console.WriteLine(@"/^(  )^\");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"\,(..),/ ");
+            Console.WriteLine(@"\,(..),/");
             Console.SetCursorPosition(Position.Left, ++y);
             Console.WriteLine(@"  |~~|'')");
             
