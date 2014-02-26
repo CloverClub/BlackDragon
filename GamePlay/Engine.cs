@@ -101,20 +101,6 @@ namespace GamePlay
             Play();
         }
 
-        public void EnemyCollision() //TOOD fix the Collision system
-        {
-            for (int i = 0; i < Enemies.Count; i++)
-			{
-                if ((Enemies[i].Width == PlayingHero.Width && Enemies[i].Length == PlayingHero.Length)
-                    || (Enemies[i].Width + 1 == PlayingHero.Width && Enemies[i].Length == PlayingHero.Length)
-                    || (Enemies[i].Width - 1 == PlayingHero.Width && Enemies[i].Length == PlayingHero.Length)
-                    || (Enemies[i].Width == PlayingHero.Width && Enemies[i].Length + 1 == PlayingHero.Length)
-                    || (Enemies[i].Width == PlayingHero.Width && Enemies[i].Length - 1 == PlayingHero.Length))
-                {
-                    Enemies[i].Attack(PlayingHero);
-                }
-			}
-        }
         //public void WeaponCollision() 
         //{
         //    for (int i = 0; i < Enemies.Count; i++)
@@ -193,7 +179,7 @@ namespace GamePlay
                         PlayingHero.AddNewMovingWeapon(Key, Factory.GetWeapon((HeroEnum)Choice));
                     }
                     EnemyCollision();
-                    // WeaponCollision();
+                    WeaponCollision();
                     EnemiesTurnThread();
                     WeaponsTurnThread();
 
@@ -207,17 +193,63 @@ namespace GamePlay
                     }
                 }
 
-                if (PlayingHero.IsDead) // hero isDead
+            }
+        }
+
+        public void EnemyCollision()
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                for (int enemyY = Enemies[i].Position.Top; enemyY <= Enemies[i].Position.Top + Enemies[i].Length; enemyY++)
                 {
-                    Console.Clear();// game over
-                }
-                else if (true) // gragon is dead
-                {
-                    // game over
+                    for (int enemyX = Enemies[i].Position.Left; enemyX <= Enemies[i].Position.Left + Enemies[i].Width; enemyX++)
+                    {
+                        if (enemyX == PlayingHero.Position.Left && enemyY == PlayingHero.Position.Top)
+                        {
+                            Enemies[i].Attack(PlayingHero);
+                            return;
+                        }
+                    }           
                 }
             }
         }
 
+        public void WeaponCollision()
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                for (int enemyY = Enemies[i].Position.Top; enemyY <= Enemies[i].Position.Top + Enemies[i].Length; enemyY++)
+                {
+                    for (int enemyX = Enemies[i].Position.Left; enemyX <= Enemies[i].Position.Left + Enemies[i].Width; enemyX++)
+                    {
+                        for (int weaponIndex = 0; weaponIndex < PlayingHero.MovingWeapons.Count; weaponIndex++)
+                        {
+                            Weapon currentWeapon = PlayingHero.MovingWeapons[weaponIndex];
+
+                            if (currentWeapon.Position.Left == enemyX && currentWeapon.Position.Top == enemyY)
+                            {
+                                PlayingHero.Weapon = currentWeapon;
+                                currentWeapon.Erase();
+                                PlayingHero.MovingWeapons.Remove(currentWeapon);
+
+                                if (PlayingHero.Attack(Enemies[i]))
+                                {
+                                    Enemies[i].Erase();
+                                    Enemies.Remove(Enemies[i]);
+                                    if (i > 0)
+                                    {
+                                        i--;
+                                    }
+                                    if (Enemies.Count == 0 || PlayingHero.MovingWeapons.Count == 0)
+                                        return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         private void EnemiesTurnThread()
         {
             if (!enemiesThread.IsAlive)

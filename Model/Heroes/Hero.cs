@@ -38,13 +38,12 @@ namespace Model
             }
             set
             {
-                int newExperience = this.experiece + value;
-                if (newExperience >= 100)
+                if (value >= 100)
                 {
-                    this.Experience = newExperience % 100;
+                    this.experiece = value % 100;
                     this.Level++;
                 }
-                this.experiece += value;
+                this.experiece = value;
             }
         }
         public int Level 
@@ -130,7 +129,7 @@ namespace Model
             {
                 this.Experience += 10;
             }
-            return attackResult;                     
+            return attackResult;
         }
 
         public void Move(ConsoleKeyInfo key)

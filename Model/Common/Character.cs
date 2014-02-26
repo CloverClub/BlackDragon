@@ -60,8 +60,8 @@ namespace Model
         }
         private void LoseHealthPoints(int damage) 
         {
-            int hitPointsAfterDamage = this.healthPoints-damage;
-            if (hitPointsAfterDamage<=0)
+            this.healthPoints = this.healthPoints-damage;
+            if (this.healthPoints <= 0)
             {
                 this.IsDead = true;
             }
