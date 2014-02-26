@@ -33,7 +33,6 @@ namespace Model
             Console.WindowHeight = height;
             Console.WindowWidth = width;
             DrawBorders();
-            Console.SetCursorPosition(4, 3);
         }
 
         public void DrawBorders()

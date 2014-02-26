@@ -128,6 +128,7 @@ namespace GamePlay
 
         public void InitializeGame()
         {
+            Console.SetCursorPosition((Console.WindowWidth / 2), 3);
             Menu.DisplayTitle();
             Menu.DisplayOptions();           
 
@@ -172,33 +173,47 @@ namespace GamePlay
 
         public void Play()
         {
-            playfield.DrawBorders();
-            PositionEnemies();
+            //while (true)
+            {
+                //PlayingHero.Level = level;
+                playfield.DrawBorders();
+                PositionEnemies();
 
-            enemiesThread = new Thread(MoveAllEnemies);
-            weaponsThread = new Thread(MoveWeaponsOnScreen);
-            enemiesThread.Start();
-            weaponsThread.Start();
+                enemiesThread = new Thread(MoveAllEnemies);
+                weaponsThread = new Thread(MoveWeaponsOnScreen);
+                enemiesThread.Start();
+                weaponsThread.Start();
 
-            while (true)
-            {              
-                if (Console.KeyAvailable)
+                while (true)
                 {
-                    key = Console.ReadKey();
-                    PlayingHero.Move(Key);
-                    PlayingHero.AddNewMovingWeapon(Key, Factory.GetWeapon((HeroEnum)Choice));
+                    if (Console.KeyAvailable)
+                    {
+                        key = Console.ReadKey();
+                        PlayingHero.Move(Key);
+                        PlayingHero.AddNewMovingWeapon(Key, Factory.GetWeapon((HeroEnum)Choice));
+                    }
+                    EnemyCollision();
+                    // WeaponCollision();
+                    EnemiesTurnThread();
+                    WeaponsTurnThread();
+
+                    if (PlayingHero.IsDead) // hero isDead
+                    {
+                        // game over
+                    }
+                    else if (true) // method - detect whether all enemies are dead 
+                    {
+                        // game over
+                    }
                 }
-                EnemyCollision();
-               // WeaponCollision();
-                EnemiesTurnThread();
-                WeaponsTurnThread();
 
-                //Checks if hero is Dead
-
-                if (PlayingHero.HealthPoints <= 0)
+                if (PlayingHero.IsDead) // hero isDead
                 {
-                    GameOver.Initialize();
-                    return;
+                    Console.Clear();// game over
+                }
+                else if (true) // gragon is dead
+                {
+                    // game over
                 }
             }
         }

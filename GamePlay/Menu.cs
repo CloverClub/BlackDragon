@@ -19,7 +19,19 @@ namespace GamePlay
 
         public void DisplayOptions()
         {
-            Console.WriteLine(BuildStringOptions());
+            Console.SetCursorPosition((Console.WindowWidth / 2), 5);
+            Console.WriteLine("Choose your character: ");
+            Console.SetCursorPosition((Console.WindowWidth / 2), 7);
+            Console.WriteLine("1. Archer");
+            Console.SetCursorPosition((Console.WindowWidth / 2), 8);
+            Console.WriteLine("2. Barbarian");
+            Console.SetCursorPosition((Console.WindowWidth / 2), 9);
+            Console.WriteLine("3. Sorcerer");
+            Console.SetCursorPosition((Console.WindowWidth / 2), 10);
+            Console.WriteLine("4. Spearman");
+            Console.SetCursorPosition((Console.WindowWidth / 2), 11);
+            Console.WriteLine("5. Dwarf");
+            Console.SetCursorPosition((Console.WindowWidth / 2), 12);
         }
 
         public void DisplayInvalidMessage()
@@ -33,20 +45,6 @@ namespace GamePlay
             title.Append("Black Dragon \n");
 
             return title.ToString();
-        }
-
-        private string BuildStringOptions()
-        {
-            options = new StringBuilder();
-            options.Append("Choose your character: ");
-            options.AppendLine();
-            options.Append("1. Archer\n");
-            options.Append("2. Barbarian\n");
-            options.Append("3. Sorcerer\n");
-            options.Append("4. Spearman\n");
-            options.Append("5. Dwarf");
-
-            return options.ToString();
         }
 
         public string BuildInvalidMessage()
