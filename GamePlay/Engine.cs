@@ -183,9 +183,10 @@ namespace GamePlay
                     EnemiesTurnThread();
                     WeaponsTurnThread();
 
+                    
                     if (PlayingHero.IsDead) // hero isDead
                     {
-                        // game over
+                        GameOver.Initialize();
                     }
                     else if (true) // method - detect whether all enemies are dead 
                     {
@@ -262,6 +263,7 @@ namespace GamePlay
         private void MoveAllEnemies()
         {
             Thread.Sleep(200);
+            PrintStats();
             for (int i = 0; i < Enemies.Count; i++)
             {
                 Enemies[i].Move(this.PlayField.Width, this.PlayField.Height);
@@ -289,6 +291,12 @@ namespace GamePlay
                     i--;
                 }
             }
+        }
+
+        private void PrintStats()
+        {
+            Console.SetCursorPosition(2, PlayField.Height - 2);
+            Console.Write("Level {0}   Experiance {1}   Health {2}   Damage {3}", this.PlayingHero.Level, this.PlayingHero.Experience, this.PlayingHero.HealthPoints, this.PlayingHero.DamagePoints);
         }
     }
 }

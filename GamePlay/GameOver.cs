@@ -15,18 +15,16 @@ namespace GamePlay
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
 
-            DrawAtPosition.WriteAt(20 , 73, "Game Over!", ConsoleColor.Red);
-
-
-            DrawAtPosition.WriteAt(25, 78, "Your scores are " + Highscores.currentScores, ConsoleColor.Red);
-            DrawAtPosition.WriteAt(25, 78, "Enter your name: ", ConsoleColor.Red);
-            DrawAtPosition.WriteAt(30, 83, "The name should be between 3 and 10 symbols!", ConsoleColor.White);
+            DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2, "Game Over!", ConsoleColor.Red);
+            DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 + 3, "Your scores are " + Highscores.currentScores, ConsoleColor.Red);
+            DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 + 6, "Enter your name: ", ConsoleColor.Red);
+            DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 + 9, "The name should be between 3 and 10 symbols!", ConsoleColor.White);
 
             // ENTER YOUR NAME starts //
             Console.CursorVisible = true;
             while (Highscores.playerNameGameOver.Length < 3 || Highscores.playerNameGameOver.Length > 10)
             {
-                Console.SetCursorPosition(42, 78);
+                Console.SetCursorPosition(Console.WindowWidth / 2 - 5, Console.WindowHeight / 2 + 12);
                 Highscores.playerNameGameOver = Console.ReadLine().ToUpper().TrimStart(' ').TrimEnd(' ');
             }
             Console.CursorVisible = false;
@@ -40,7 +38,7 @@ namespace GamePlay
             {
                 Highscores.ShowHighScores(ConsoleColor.Yellow);
 
-                DrawAtPosition.WriteAt(21, 73, "To EXIT the game press ESC button", ConsoleColor.White);
+                DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 + 5, "To EXIT the game press ESC button", ConsoleColor.White);
 
                 /////////// checks if the player is in top 5 ///////////
                 List<string> topFive = Highscores.GetHighScores();
@@ -54,7 +52,7 @@ namespace GamePlay
                     if (scoreAndName[1] == Highscores.playerNameGameOver
                         && scoreAndName[0].TrimStart('0') == Convert.ToString(Highscores.currentScores))
                     {
-                        DrawAtPosition.WriteAt(20, 68, "YOU ARE IN TOP 5");
+                        DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 + 5, "YOU ARE IN TOP 5");
                         inTopFive = true;
                         break;
                     }
@@ -62,8 +60,8 @@ namespace GamePlay
 
                 if (inTopFive == false)
                 {
-                    DrawAtPosition.WriteAt(22, 66, "You are NOT in TOP 5");
-                    DrawAtPosition.WriteAt(18, 64, "Try again!");
+                    DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 + 2, "You are NOT in TOP 5");
+                    DrawAtPosition.WriteAt(Console.WindowWidth / 2 - 20, Console.WindowHeight / 2 - 2, "Try again!");
                 }
 
                 /////////// checks if the player is in top 5 ///////////
