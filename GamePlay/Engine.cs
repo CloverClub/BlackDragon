@@ -213,7 +213,7 @@ namespace GamePlay
 
         private void MoveWeaponsOnScreen()
         {
-            Thread.Sleep(200);
+            Thread.Sleep(25);
             for (int i = 0; i < PlayingHero.MovingWeapons.Count; i++)
             {
                 PlayingHero.MovingWeapons[i].Move(this.PlayField.Width, this.PlayField.Height);
