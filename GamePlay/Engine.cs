@@ -159,9 +159,8 @@ namespace GamePlay
 
         public void Play()
         {
-            //while (true)
+            while (!PlayingHero.IsDead)
             {
-                //PlayingHero.Level = level;
                 playfield.DrawBorders();
                 PositionEnemies();
 
@@ -169,8 +168,9 @@ namespace GamePlay
                 weaponsThread = new Thread(MoveWeaponsOnScreen);
                 enemiesThread.Start();
                 weaponsThread.Start();
+                PlayingHero.HealthPoints = 100;
 
-                while (true)
+                while (Enemies.Count != 0)
                 {
                     if (Console.KeyAvailable)
                     {
@@ -194,6 +194,7 @@ namespace GamePlay
                     }
                 }
 
+                PlayingHero.Level++;
             }
         }
 
@@ -217,37 +218,48 @@ namespace GamePlay
 
         public void WeaponCollision()
         {
-            for (int i = 0; i < Enemies.Count; i++)
+            try
             {
-                for (int enemyY = Enemies[i].Position.Top; enemyY <= Enemies[i].Position.Top + Enemies[i].Length; enemyY++)
+                #region
+                for (int i = 0; i < Enemies.Count; i++)
                 {
-                    for (int enemyX = Enemies[i].Position.Left; enemyX <= Enemies[i].Position.Left + Enemies[i].Width; enemyX++)
+                    for (int enemyY = Enemies[i].Position.Top; enemyY <= Enemies[i].Position.Top + Enemies[i].Length; enemyY++)
                     {
-                        for (int weaponIndex = 0; weaponIndex < PlayingHero.MovingWeapons.Count; weaponIndex++)
+                        for (int enemyX = Enemies[i].Position.Left; enemyX <= Enemies[i].Position.Left + Enemies[i].Width; enemyX++)
                         {
-                            Weapon currentWeapon = PlayingHero.MovingWeapons[weaponIndex];
-
-                            if (currentWeapon.Position.Left == enemyX && currentWeapon.Position.Top == enemyY)
+                            for (int weaponIndex = 0; weaponIndex < PlayingHero.MovingWeapons.Count; weaponIndex++)
                             {
-                                PlayingHero.Weapon = currentWeapon;
-                                currentWeapon.Erase();
-                                PlayingHero.MovingWeapons.Remove(currentWeapon);
+                                Weapon currentWeapon = PlayingHero.MovingWeapons[weaponIndex];
 
-                                if (PlayingHero.Attack(Enemies[i]))
+                                if (currentWeapon.Position.Left == enemyX && currentWeapon.Position.Top == enemyY)
                                 {
-                                    Enemies[i].Erase();
-                                    Enemies.Remove(Enemies[i]);
-                                    if (i > 0)
+                                    PlayingHero.Weapon = currentWeapon;
+                                    currentWeapon.Erase();
+                                    PlayingHero.MovingWeapons.Remove(currentWeapon);
+
+                                    if (PlayingHero.Attack(Enemies[i]))
                                     {
-                                        i--;
+                                        Enemies[i].Erase();
+                                        Enemies.Remove(Enemies[i]);
+                                        if (i > 0)
+                                        {
+                                            i--;
+                                        }
+                                        if (Enemies.Count == 0 || PlayingHero.MovingWeapons.Count == 0)
+                                            return;
                                     }
-                                    if (Enemies.Count == 0 || PlayingHero.MovingWeapons.Count == 0)
-                                        return;
                                 }
+
                             }
                         }
                     }
                 }
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
         
@@ -284,11 +296,18 @@ namespace GamePlay
             Thread.Sleep(25);
             for (int i = 0; i < PlayingHero.MovingWeapons.Count; i++)
             {
-                PlayingHero.MovingWeapons[i].Move(this.PlayField.Width, this.PlayField.Height);
-                if (PlayingHero.MovingWeapons[i].ToBeRemoved)
+                try
                 {
-                    PlayingHero.MovingWeapons.Remove(PlayingHero.MovingWeapons[i]);
-                    i--;
+                    PlayingHero.MovingWeapons[i].Move(this.PlayField.Width, this.PlayField.Height);
+                    if (PlayingHero.MovingWeapons[i].ToBeRemoved)
+                    {
+                        PlayingHero.MovingWeapons.Remove(PlayingHero.MovingWeapons[i]);
+                        i--;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return;
                 }
             }
         }
