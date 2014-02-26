@@ -192,6 +192,14 @@ namespace GamePlay
                // WeaponCollision();
                 EnemiesTurnThread();
                 WeaponsTurnThread();
+
+                //Checks if hero is Dead
+
+                if (PlayingHero.HealthPoints <= 0)
+                {
+                    GameOver.Initialize();
+                    return;
+                }
             }
         }
 

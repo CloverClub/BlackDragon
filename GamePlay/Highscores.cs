@@ -21,8 +21,8 @@ namespace GamePlay
 
             string[] currentScoreAndName;
 
-            WriteAt(10, 0, "\n" + "                         HIGH SCORES:" + "\n");
-            WriteAt(10, 3, "*========================================*");
+            DrawAtPosition.WriteAt(10, 0, "\n" + "                         HIGH SCORES:" + "\n");
+            DrawAtPosition.WriteAt(10, 3, "*========================================*");
 
             int linesNumber = (allScores.Count > 30) ? 30 : allScores.Count;
 
@@ -42,8 +42,8 @@ namespace GamePlay
                 }
 
                 string lineString = String.Format("* Player {0}: {1}", currentScoreAndName[1], scores);
-                WriteAt(10, 4 + index, lineString);
-                WriteAt(51, 4 + index, "*");
+                DrawAtPosition.WriteAt(10, 4 + index, lineString);
+                DrawAtPosition.WriteAt(51, 4 + index, "*");
             }
 
             if (allScores.Count < 5)
@@ -51,15 +51,15 @@ namespace GamePlay
                 int emptyRows = 5 - allScores.Count;
                 while (emptyRows != 0)
                 {
-                    WriteAt(10, 4 + (5 - emptyRows), "*");
-                    WriteAt(51, 4 + (5 - emptyRows), "*");
+                    DrawAtPosition.WriteAt(10, 4 + (5 - emptyRows), "*");
+                    DrawAtPosition.WriteAt(51, 4 + (5 - emptyRows), "*");
                     emptyRows--;
                 }
             }
 
             Console.WriteLine("\n" + "          *========================================*");
 
-            WriteAt(25, 5, "Click ESC to return");
+            DrawAtPosition.WriteAt(25, 5, "Click ESC to return");
 
             bool commandCorrect = false;
 
@@ -87,8 +87,8 @@ namespace GamePlay
 
                 // PRINTS TOP 5 PLAYERS w. HIGH SCORES
 
-                WriteAt(10, 0, "\n" + "                         HIGH SCORES:" + "\n");
-                WriteAt(10, 3, "*========================================*");
+                DrawAtPosition.WriteAt(10, 0, "\n" + "                         HIGH SCORES:" + "\n");
+                DrawAtPosition.WriteAt(10, 3, "*========================================*");
 
                 for (int index = 0; index < fiveTopPlayers.Count; index++)
                 {
@@ -106,8 +106,8 @@ namespace GamePlay
                     }
 
                     string lineString = String.Format("* Player {0}: {1}", currentScoreAndName[1], scores);
-                    WriteAt(10, 4 + index, lineString, textcolor);
-                    WriteAt(51, 4 + index, "*", textcolor);
+                    DrawAtPosition.WriteAt(10, 4 + index, lineString, textcolor);
+                    DrawAtPosition.WriteAt(51, 4 + index, "*", textcolor);
                 }
 
                 if (fiveTopPlayers.Count < 5)
@@ -115,8 +115,8 @@ namespace GamePlay
                     int emptyRows = 5 - fiveTopPlayers.Count;
                     while (emptyRows != 0)
                     {
-                        WriteAt(10, 4 + (5 - emptyRows), "*", textcolor);
-                        WriteAt(51, 4 + (5 - emptyRows), "*", textcolor);
+                        DrawAtPosition.WriteAt(10, 4 + (5 - emptyRows), "*", textcolor);
+                        DrawAtPosition.WriteAt(51, 4 + (5 - emptyRows), "*", textcolor);
                         emptyRows--;
                     }
                 }
@@ -185,30 +185,6 @@ namespace GamePlay
                 writer.WriteLine(recordScores);
             }
         }
-        public static void WriteAt(int col, int row, string stringToWrite, ConsoleColor colorText = ConsoleColor.White)
-        {
-            //try
-            //{
-            Console.SetCursorPosition(col, row);
-            Console.ForegroundColor = colorText;
-            Console.Write(stringToWrite);
-            //}
-            //catch (ArgumentOutOfRangeException outOfRange)
-            //{
-            //    Console.Error.WriteLine(outOfRange.Message);
-            //}
-            //catch (SecurityException security)
-            //{
-            //    Console.Error.WriteLine(security.Message);
-            //}
-            //catch (IOException IO)
-            //{
-            //    Console.Error.WriteLine(IO.Message);
-            //}
-            //catch (Exception unknown)
-            //{
-            //    Console.Error.WriteLine(unknown.Message);
-            //}
-        }
+        
     }
 }
