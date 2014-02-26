@@ -189,7 +189,7 @@ namespace GamePlay
                     PlayingHero.AddNewMovingWeapon(Key, Factory.GetWeapon((HeroEnum)Choice));
                 }
                 EnemyCollision();
-                WeaponCollision();
+               // WeaponCollision();
                 EnemiesTurnThread();
                 WeaponsTurnThread();
             }
