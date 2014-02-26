@@ -97,7 +97,7 @@ namespace Model
             bool isOnTopBorder = (this.Position.Top == PlayField.borderTop);
             bool isOnRightFieldBorder = (this.Position.Left == fieldWidth - 4 - PlayField.borderSides);
             bool isOnLeftFieldBorder = (this.Position.Left == PlayField.borderSides +1);
-            bool isOnDownFieldBorder = (this.Position.Top == fieldHeight - PlayField.borderBottom );
+            bool isOnDownFieldBorder = (this.Position.Top > fieldHeight - 4 - PlayField.borderBottom );
 
             if (isOnTopBorder || isOnRightFieldBorder || isOnLeftFieldBorder || isOnDownFieldBorder)
             {
@@ -132,9 +132,9 @@ namespace Model
 
         private void MoveDown()
         {
-            this.Erase();
-            this.Position.Top++;
-            this.Draw();
+                this.Erase();
+                this.Position.Top++;
+                this.Draw();
         }
 
         private void MoveLeft()

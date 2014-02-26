@@ -27,7 +27,7 @@ namespace Model
 
         public override void Move(int fieldWidth, int fieldHeight)
         {           
-            bool isOnTopBorder = (this.Position.Top == PlayField.borderTop + 1);
+            bool isOnTopBorder = (this.Position.Top == PlayField.borderTop + 2);
             bool isOnRightFieldBorder = (this.Position.Left == fieldWidth - 2 - this.Width - PlayField.borderSides);
             bool isOnLeftFieldBorder = (this.Position.Left == PlayField.borderSides + 1);
             bool isOnDownFieldBorder = (this.Position.Top == fieldHeight - 2 - this.Length - PlayField.borderBottom);

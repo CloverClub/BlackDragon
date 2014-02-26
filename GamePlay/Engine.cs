@@ -128,6 +128,7 @@ namespace GamePlay
 
         public void InitializeGame()
         {
+            Console.SetCursorPosition((Console.WindowWidth / 2), 3);
             Menu.DisplayTitle();
             Menu.DisplayOptions();           
 
