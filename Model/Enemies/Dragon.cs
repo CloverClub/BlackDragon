@@ -31,17 +31,17 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine("   (_(");
+            Console.Write("   (_(");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"  ('')");
+            Console.Write(@"  ('')");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"_  ''\ )>,_     .-->");
+            Console.Write(@"_  ''\ )>,_     .-->");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"_>--w/((_ >,_.'");
+            Console.Write(@"_>--w/((_ >,_.'");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"       ///");
+            Console.Write(@"       ///");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"      ''`''");
+            Console.Write(@"      ''`''");
             //
             //   (_(
             //  ('')
@@ -57,17 +57,18 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
+
         }
     }
 }

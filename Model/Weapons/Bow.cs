@@ -27,27 +27,27 @@ namespace Model
             Console.SetCursorPosition(x, y);
             if (WeaponDirection == WeaponDirectionEnum.up)
             {
-                Console.WriteLine("^");
+                Console.Write("^");
                 Console.SetCursorPosition(Position.Left, ++y);
-                Console.WriteLine("|");
+                Console.Write("|");
                 Console.SetCursorPosition(Position.Left, ++y);
-                Console.WriteLine("~");
+                Console.Write("~");
             }
             else if (WeaponDirection== WeaponDirectionEnum.down)
             {
-                Console.WriteLine("~");
+                Console.Write("~");
                 Console.SetCursorPosition(Position.Left, ++y);
-                Console.WriteLine("|");
+                Console.Write("|");
                 Console.SetCursorPosition(Position.Left, ++y);
-                Console.WriteLine("v");
+                Console.Write("v");
             }
             else if (WeaponDirection == WeaponDirectionEnum.left)
             {
-                Console.WriteLine("<--:");
+                Console.Write("<--:");
             }
             else if (WeaponDirection == WeaponDirectionEnum.right)
             {
-                Console.WriteLine(":-->");
+                Console.Write(":-->");
             }
         }
 
@@ -58,16 +58,17 @@ namespace Model
 
             if (WeaponDirection == WeaponDirectionEnum.up || WeaponDirection == WeaponDirectionEnum.down)
             {
-                Console.WriteLine(new string(' ', 1));
+                Console.Write(new string(' ', 1));
                 Console.SetCursorPosition(Position.Left, ++y);
-                Console.WriteLine(new string(' ', 1));
+                Console.Write(new string(' ', 1));
                 Console.SetCursorPosition(Position.Left, ++y);
-                Console.WriteLine(new string(' ', 1));
+                Console.Write(new string(' ', 1));
                 Console.SetCursorPosition(Position.Left, ++y);
+
             }
             else if (WeaponDirection == WeaponDirectionEnum.left || WeaponDirection == WeaponDirectionEnum.right)
             {
-                Console.WriteLine(new string(' ', 4));
+                Console.Write(new string(' ', 4));
             }
         }
 

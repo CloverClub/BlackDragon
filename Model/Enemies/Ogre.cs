@@ -31,15 +31,15 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine(@" /oo\  _");
+            Console.Write(@" /oo\  _");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@" \ o/ |/");
+            Console.Write(@" \ o/ |/");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"/    \V");
+            Console.Write(@"/    \V");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@"( __ )");
+            Console.Write(@"( __ )");
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(@" |--|");
+            Console.Write(@" |--|");
             
             // /@@\  _
             // \ o/ |/
@@ -54,15 +54,17 @@ namespace Model
             int y = Position.Top;
 
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
             Console.SetCursorPosition(Position.Left, ++y);
-            Console.WriteLine(new string(' ', this.Width));
+            Console.Write(new string(' ', this.Width));
+
+
         }
     }
 }

@@ -274,7 +274,7 @@ namespace GamePlay
 
         private void MoveAllEnemies()
         {
-            Thread.Sleep(200);
+            Thread.Sleep(1000);
             PrintStats();
             for (int i = 0; i < Enemies.Count; i++)
             {
@@ -293,7 +293,7 @@ namespace GamePlay
 
         private void MoveWeaponsOnScreen()
         {
-            Thread.Sleep(25);
+            Thread.Sleep(100);
             for (int i = 0; i < PlayingHero.MovingWeapons.Count; i++)
             {
                 try
